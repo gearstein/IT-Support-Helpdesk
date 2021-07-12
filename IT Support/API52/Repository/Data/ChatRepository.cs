@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace API52.Repository.Data
 {
-    public class EducationRepository : GeneralRepository<MyContext, TicketRequest, int>
+    public class ChatRepository : GeneralRepository<MyContext, Chat, int>
     {
-        public EducationRepository(MyContext myContext) : base(myContext)
+        public ChatRepository(MyContext myContext) : base(myContext)
         {
 
         }
