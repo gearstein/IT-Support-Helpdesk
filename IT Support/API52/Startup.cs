@@ -64,12 +64,12 @@ namespace API52
                 };
             });
 
-            services.AddScoped<EmployeeRepository>();
-            services.AddScoped<AccountRepository>();
-            services.AddScoped<ProfillingRepository>();
-            services.AddScoped<EducationRepository>();
-            services.AddScoped<UniversityRepository>();
-            services.AddScoped<RoleRepository>();
+            //services.AddScoped<EmployeeRepository>();
+            //services.AddScoped<AccountRepository>();
+            //services.AddScoped<ProfillingRepository>();
+            //services.AddScoped<EducationRepository>();
+            //services.AddScoped<UniversityRepository>();
+            //services.AddScoped<RoleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

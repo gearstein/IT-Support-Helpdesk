@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\Client\\Client.csproj": {}
+    "C:\\Users\\ASUS\\source\\repos\\IT Support\\Client\\Client.csproj": {}
   },
   "projects": {
-    "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj": {
+    "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\API52.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\API52.csproj",
         "projectName": "API52",
-        "projectPath": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
-        "packagesPath": "C:\\Users\\ronal\\.nuget\\packages\\",
-        "outputPath": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\API52.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ronal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,25 +109,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\Client\\Client.csproj": {
+    "C:\\Users\\ASUS\\source\\repos\\IT Support\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\IT Support\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\ronal\\.nuget\\packages\\",
-        "outputPath": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\Client\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\source\\repos\\IT Support\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\source\\repos\\IT Support\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ronal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,8 +137,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj": {
-                "projectPath": "I:\\METRODATA\\PROJECT\\Tugas\\git-hub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj"
+              "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\API52.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\source\\repos\\IT Support\\API52\\API52.csproj"
               }
             }
           }
@@ -184,7 +176,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
