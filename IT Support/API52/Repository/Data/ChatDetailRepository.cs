@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace API52.Repository.Data
 {
-    public class ProfillingRepository : GeneralRepository<MyContext, Status, string>
+    public class RoleRepository : GeneralRepository<MyContext, Role, int>
     {
-        public ProfillingRepository(MyContext myContext) : base(myContext)
+        public RoleRepository(MyContext myContext) : base(myContext)
         {
 
         }
