@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "_Login";
+}
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form action="/login/auth" method="post" class="box">
+                    <h1>Login</h1>
+                    <p class="text-muted"> Please enter your Email and Password</p>
+                    <input type="text" name="Email" placeholder="Email">
+                    <input type="password" name="Password" placeholder="Password">
+                    <a class="forgot text-muted">Forgot Password?</a>
+                    <input type="submit" name="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Sign In </h2>
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="~/Dashboard/dist/img/AdminLTELogo.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form action="/login/auth" method="post" class="box">
+            <input type="text" id="login" class="fadeIn second" name="Email" placeholder="Email">
+            <input type="password" id="password" class="fadeIn third" name="Password" placeholder="Password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+
+
