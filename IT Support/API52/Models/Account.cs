@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_M_Account")]
+    [Table("tb_M_Accounts")]
     public class Account
     {
         [Key]
-        public string NIK { get; set; }
+        public int NIK { get; set; }
         public string Password { get; set; }
+
         [JsonIgnore]
         public virtual Employee Employee { get; set; }
         [JsonIgnore]
-        public virtual Profilling Profilling { get; set; }
+        public virtual ICollection<Chat> Chats { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<AccountRole> AccountRoles { get; set; }
     }
 }

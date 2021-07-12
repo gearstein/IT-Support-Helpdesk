@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_Tr_AccountRole")]
+    [Table("tb_Tr_AccountRoles")]
     public class AccountRole
     {
-        public string NIK { get; set; }
-        public int RoleID { get; set; }
+        public int NIK { get; set; }
+        public int IDRole { get; set; }
+
         [JsonIgnore]
         public virtual Account Account { get; set; }
         [JsonIgnore]

@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_Tr_Profilling")]
-    public class Profilling
+    [Table("tb_Tr_Status")]
+    public class Status
     {
         [Key]
-        public string NIK { get; set; }
-        public int EducationId { get; set; }
+        public int IDStat { get; set; }
+        public string Detail { get; set; }
+
         [JsonIgnore]
-        public virtual Account Account {get;set; }
+        public virtual ICollection<TicketHistory> TicketHistories { get; set; }
+
         [JsonIgnore]
-        public virtual TicketRequest Education { get;set;}
+        public virtual ICollection<TicketRequest> TicketRequests { get; set; }
     }
 }

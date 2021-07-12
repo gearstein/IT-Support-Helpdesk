@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_M_Role")]
-    public class Role
+    [Table("tb_M_ChatDetails")]
+    public class ChatDetail
     {
         [Key]
-        public int RoleID { get; set; }
-        public string RoleName { get; set; }
+        public int IDDetail { get; set; }
+        public string Message { get; set; }
+        public DateTime SendDate { get; set; }
+        public DateTime UpdateDate { get; set; }
+        public int IDChat{ get; set; }
+
         [JsonIgnore]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual Chat Chat { get; set; }
+      
     }
 }

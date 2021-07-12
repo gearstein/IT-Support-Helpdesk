@@ -9,13 +9,21 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_M_University")]
-    public class University
+    [Table("tb_M_TicketHistory")]
+    public class TicketHistory
     {
         [Key]
-        public int UniversityId { get; set; }
-        public string UniversityName { get; set; }
+        public string Title { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime UpdateDate { get; set; }
+        public int IdTicket { get; set; }
+        public int IdStat { get; set; }
+
         [JsonIgnore]
-        public virtual ICollection<TicketRequest> Educations { get; set; }
+        public virtual TicketRequest TicketRequest { get; set; }
+
+        [JsonIgnore]
+        public virtual Status Status { get; set; }
+
     }
 }

@@ -9,17 +9,24 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_M_Education")]
-    public class Education
+    [Table("tb_M_TicketRequest")]
+    public class TicketRequest
     {
         [Key]
-        public  int EducationId { get; set; }
-        public string Degree { get; set; }
-        public string GPA { get; set; }
-        public int UniversityId { get; set; }
+        public  int IDTicket { get; set; }
+        public string Title { get; set; }
+        public string Message { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime UpdateDate { get; set; }
+        public int IDStat { get; set; }
+        public int NIK { get; set; }
+
         [JsonIgnore]
-        public virtual ICollection<Profilling> Profillings{ get; set; }
+        public virtual ICollection<TicketHistory> TicketHistories{ get; set; }
         [JsonIgnore]
-        public virtual University University { get; set; }
+        public virtual Chat Chat { get; set; }
+        [JsonIgnore]
+        public virtual Status Status { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

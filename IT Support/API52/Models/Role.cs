@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace API52.Models
 {
-    [Table("tb_M_Role")]
+    [Table("tb_M_Roles")]
     public class Role
     {
         [Key]
-        public int RoleID { get; set; }
+        public int IDRole { get; set; }
         public string RoleName { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<AccountRole> AccountRoles { get; set; }
     }
 }

@@ -14,59 +14,86 @@ namespace API52.Context
 
         }
         //public static object Employee { get; internal set; }
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Status> Profillings { get; set; }
-        public DbSet<TicketRequest> Educations { get; set; }
-        public DbSet<TicketHistory> Universities { get; set; }
-        public DbSet<Role> Roles { get; set; }
         public DbSet<AccountRole> AccountRoles { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<ChatDetail> ChatDetails { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+        public DbSet<TicketHistory> TicketHistories { get; set; }
+        public DbSet<TicketRequest> TicketRequests { get; set; }
+      
+
+
+
+
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseLazyLoadingProxies();
         //}
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            //Employee - Account
-            modelbuilder.Entity<Employee>()
-                .HasOne(c => c.Account)
-                .WithOne(e => e.Employee)
-                .HasForeignKey<Account>(d => d.NIK);
-            //Account - Profilling
+            //Account - Employee
             modelbuilder.Entity<Account>()
-                .HasOne(c => c.Profilling)
-                .WithOne(e => e.Account)
-                .HasForeignKey<Status>(d => d.NIK);
-            //Profilling - Education
-            modelbuilder.Entity<Status>()
-                .HasOne(c => c.Education)
-                .WithMany(e => e.Profillings);
-            //Education - University
+                .HasOne(e => e.Employee)
+                .WithOne(a => a.Account)
+                .HasForeignKey<Employee>(d => d.NIK);
+
+            //Account - Chat
+            modelbuilder.Entity<Account>()
+                .HasMany(c => c.Chats)
+                .WithOne(a => a.Account);
+
+            //Account - AccountRole
+            modelbuilder.Entity<Account>()
+                .HasMany(ac => ac.AccountRoles)
+                .WithOne(a => a.Account);
+
+            //Role - AccountRole
+            modelbuilder.Entity<Role>()
+                .HasMany(ac => ac.AccountRoles)
+                .WithOne(r => r.Role);
+
+            //Chat - ChatDetail
+            modelbuilder.Entity<Chat>()
+                .HasMany(cd => cd.ChatDetails)
+                .WithOne(c => c.Chat);
+
+            //TicketRequest - Chat  
             modelbuilder.Entity<TicketRequest>()
-                .HasOne(c => c.University)
-                .WithMany(e => e.Educations);
-            ////Account - AccountRole - Role
-            //modelbuilder.Entity<AccountRole>()
-            //    .HasKey(ar => new { ar.NIK, ar.RoleID });
-            ////AccountRole - Account
-            //modelbuilder.Entity<AccountRole>()
-            //    .HasOne<Account>(ar => ar.Account)
-            //    .WithMany(a => a.AccountRoles)
-            //    .HasForeignKey(ar => ar.NIK);
-            ////AccountRole - Role
-            //modelbuilder.Entity<AccountRole>()
-            //    .HasOne<Role>(ar => ar.Role)
-            //    .WithMany(a => a.AccountRoles)
-            //    .HasForeignKey(ar => ar.RoleID);
-            modelbuilder.Entity<Role>().HasMany(a => a.Accounts)
-                .WithMany(b => b.Roles).UsingEntity<AccountRole>
-                (c => c.HasOne(d => d.Account)
-                .WithMany().HasForeignKey(e => e.NIK), f => f.HasOne(g => g.Role)
-                .WithMany().HasForeignKey(h => h.RoleID));
-            //Conversi String Gender Employee
+                .HasOne(t => t.Chat)
+                .WithOne(c => c.TicketRequest)
+                .HasForeignKey<Chat>(d => d.IDTicket);
+
+            //Employee - Account  
             modelbuilder.Entity<Employee>()
-            .Property(s => s.Gender)
-            .HasConversion<string>();
+                .HasOne(t => t.Account)
+                .WithOne(c => c.Employee)
+                .HasForeignKey<Account>(d => d.NIK);
+
+            //Employee - TicketRequest
+            modelbuilder.Entity<Employee>()
+                .HasMany(t => t.TicketRequests)
+                .WithOne(e => e.Employee);
+
+            //Status - TicketRequest
+            modelbuilder.Entity<Status>()
+                .HasMany(t => t.TicketRequests)
+                .WithOne(s => s.Status);
+
+            //ticket request -> Ticket History <- status
+            modelbuilder.Entity<TicketHistory>()
+        .HasKey(bc => new { bc.IdTicket, bc.IdStat});
+            modelbuilder.Entity<TicketHistory>()
+                .HasOne(bc => bc.TicketRequest)
+                .WithMany(b => b.TicketHistories)
+                .HasForeignKey(bc => bc.IdTicket);
+            modelbuilder.Entity<TicketHistory>()
+                .HasOne(bc => bc.Status)
+                .WithMany(c => c.TicketHistories)
+                .HasForeignKey(bc => bc.IdStat);
+
         }
     }
 }
