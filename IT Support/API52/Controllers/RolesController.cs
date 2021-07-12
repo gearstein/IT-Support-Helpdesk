@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace API52.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("AllowOrigin")]
