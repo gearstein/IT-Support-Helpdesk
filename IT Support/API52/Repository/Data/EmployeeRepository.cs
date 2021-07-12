@@ -28,11 +28,8 @@ namespace API52.Repository.Data
         //            var employee = new Employee();
         //            employee.NIK = registerVM.NIK;
         //            employee.FirstName = registerVM.FirstName;
-        //            employee.LastName = registerVM.LastName;
-        //            employee.Gender = (Models.GenderRole)registerVM.Gender;
+        //            employee.LastName = registerVM.LastName;            
         //            employee.Email = registerVM.Email;
-        //            employee.BirthDate = registerVM.BirthDate;
-        //            employee.Salary = registerVM.Salary;
         //            employee.PhoneNumber = registerVM.PhoneNumber;
         //            context.Employees.Add(employee);
         //            context.SaveChanges();
@@ -56,18 +53,8 @@ namespace API52.Repository.Data
         //            //string passwordHash = BCrypt.Net.BCrypt.HashPassword(account.Password);
         //            //account.Password = passwordHash;
 
-        //            //edukasi
-        //            var edu = context.Educations.SingleOrDefault(b => b.Degree == registerVM.Degree
-        //                && b.GPA == registerVM.GPA && b.UniversityId == registerVM.UniversityId);
-        //            int eduid = edu.EducationId;
-
-        //            //profilling
-        //            var profilling = new Status();
-        //            profilling.NIK = registerVM.NIK;
-        //            profilling.EducationId = eduid;
-        //            //profilling.EducationId = "select educationid from educationid where degree = register.degree and gpa = register.gpa and universityid = register.universityid"
-        //            context.Profillings.Add(profilling);
-        //            context.SaveChanges();
+                
+        //           );
         //            return 3;
         //        }
         //        else

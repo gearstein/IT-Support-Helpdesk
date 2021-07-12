@@ -25,9 +25,6 @@ namespace API52.Context
         public DbSet<TicketRequest> TicketRequests { get; set; }
       
 
-
-
-
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseLazyLoadingProxies();
