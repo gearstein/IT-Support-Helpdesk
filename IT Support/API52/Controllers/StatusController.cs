@@ -14,9 +14,9 @@ namespace API52.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("AllowOrigin")]
-    public class EducationsController : BaseController<TicketRequest, TicketRequestRepository, int>
+    public class StatusController : BaseController<Status, StatusRepository, int>
     {
-        public EducationsController(TicketRequestRepository educationRepository) : base(educationRepository)
+        public StatusController(StatusRepository statusRepository) : base(statusRepository)
         {
 
         }

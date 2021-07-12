@@ -14,9 +14,9 @@ namespace API52.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("AllowOrigin")]
-    public class ProfillingsController : BaseController<Status, ChatDetailRepository, string>
+    public class ChatDetailsController : BaseController<ChatDetail, ChatDetailRepository, int>
     {
-        public ProfillingsController(ChatDetailRepository profillingRepository) : base(profillingRepository)
+        public ChatDetailsController(ChatDetailRepository chatdetailRepository) : base(chatdetailRepository)
         {
 
         }

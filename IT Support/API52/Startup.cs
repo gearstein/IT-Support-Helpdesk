@@ -64,8 +64,15 @@ namespace API52
                 };
             });
 
-            //services.AddScoped<EmployeeRepository>();
-            //services.AddScoped<AccountRepository>();
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<AccountRepository>();
+            services.AddScoped<AccountRoleRepository>();
+            services.AddScoped<ChatRepository>();
+            services.AddScoped<ChatDetailRepository>();
+            services.AddScoped<RoleRepository>();
+            services.AddScoped<StatusRepository>();
+            services.AddScoped<TicketHistoryRepository>();
+            services.AddScoped<TicketRequestRepository>();
             //services.AddScoped<ProfillingRepository>();
             //services.AddScoped<EducationRepository>();
             //services.AddScoped<UniversityRepository>();
