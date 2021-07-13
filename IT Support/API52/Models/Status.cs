@@ -17,9 +17,6 @@ namespace API52.Models
         public string Detail { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<TicketHistory> TicketHistories { get; set; }
-
-        [JsonIgnore]
         public virtual ICollection<TicketRequest> TicketRequests { get; set; }
     }
 }

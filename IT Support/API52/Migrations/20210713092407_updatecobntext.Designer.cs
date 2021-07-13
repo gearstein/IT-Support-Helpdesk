@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API52.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210713083100_ChangeTipedata")]
-    partial class ChangeTipedata
+    [Migration("20210713092407_updatecobntext")]
+    partial class updatecobntext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -158,24 +158,26 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.TicketHistory", b =>
                 {
-                    b.Property<int>("IdTicket")
-                        .HasColumnType("int");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("IdStat")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTicket")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("IdTicket", "IdStat");
+                    b.HasKey("Title");
 
                     b.HasIndex("IdStat");
+
+                    b.HasIndex("IdTicket");
 
                     b.ToTable("tb_M_TicketHistory");
                 });
@@ -187,9 +189,6 @@ namespace API52.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EmployeeNIK")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("IDStat")
                         .HasColumnType("int");
 
@@ -197,13 +196,10 @@ namespace API52.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NIK")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("StatusIDStat")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -213,9 +209,7 @@ namespace API52.Migrations
 
                     b.HasKey("IDTicket");
 
-                    b.HasIndex("EmployeeNIK");
-
-                    b.HasIndex("StatusIDStat");
+                    b.HasIndex("NIK");
 
                     b.ToTable("tb_M_TicketRequest");
                 });
@@ -279,13 +273,13 @@ namespace API52.Migrations
             modelBuilder.Entity("API52.Models.TicketHistory", b =>
                 {
                     b.HasOne("API52.Models.Status", "Status")
-                        .WithMany("TicketHistories")
+                        .WithMany()
                         .HasForeignKey("IdStat")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("API52.Models.TicketRequest", "TicketRequest")
-                        .WithMany("TicketHistories")
+                        .WithMany()
                         .HasForeignKey("IdTicket")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -299,15 +293,9 @@ namespace API52.Migrations
                 {
                     b.HasOne("API52.Models.Employee", "Employee")
                         .WithMany("TicketRequests")
-                        .HasForeignKey("EmployeeNIK");
-
-                    b.HasOne("API52.Models.Status", "Status")
-                        .WithMany("TicketRequests")
-                        .HasForeignKey("StatusIDStat");
+                        .HasForeignKey("NIK");
 
                     b.Navigation("Employee");
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("API52.Models.Account", b =>
@@ -327,18 +315,9 @@ namespace API52.Migrations
                     b.Navigation("TicketRequests");
                 });
 
-            modelBuilder.Entity("API52.Models.Status", b =>
-                {
-                    b.Navigation("TicketHistories");
-
-                    b.Navigation("TicketRequests");
-                });
-
             modelBuilder.Entity("API52.Models.TicketRequest", b =>
                 {
                     b.Navigation("Chat");
-
-                    b.Navigation("TicketHistories");
                 });
 #pragma warning restore 612, 618
         }

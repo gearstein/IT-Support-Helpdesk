@@ -19,7 +19,7 @@ namespace API52.Models
         [JsonIgnore]
         public virtual Employee Employee { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Chat> Chats { get; set; }
+        public virtual Chat Chat { get; set; }
         [JsonIgnore]
         public virtual ICollection<Role> Roles { get; set; }
     }

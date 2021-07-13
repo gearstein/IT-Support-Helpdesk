@@ -12,12 +12,13 @@ namespace API52.Models
     public class Chat
     {
         [Key]
-        public int IDChat { get; set; }
+        public int ChatID { get; set; }
         public int IDTicket { get; set; }
-        public int IDCS { get; set; }
+        public string IDCS { get; set; }
 
         [JsonIgnore]
         public virtual TicketRequest TicketRequest { get; set; }
+        [JsonIgnore]
         public virtual Account Account { get; set; }
         [JsonIgnore]
         public virtual ICollection<ChatDetail> ChatDetails { get; set; }

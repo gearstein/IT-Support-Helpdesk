@@ -22,11 +22,10 @@ namespace API52.Models
         public string NIK { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<TicketHistory> TicketHistories{ get; set; }
+        public virtual ICollection<Status> Statuses{ get; set; }
         [JsonIgnore]
         public virtual Chat Chat { get; set; }
         [JsonIgnore]
-        public virtual Status Status { get; set; }
         public virtual Employee Employee { get; set; }
     }
 }

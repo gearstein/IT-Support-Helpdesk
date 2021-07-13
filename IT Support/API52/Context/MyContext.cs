@@ -38,9 +38,10 @@ namespace API52.Context
                 .HasForeignKey<Employee>(d => d.NIK);
 
             //Account - Chat
-            modelbuilder.Entity<Account>()
-                .HasMany(c => c.Chats)
-                .WithOne(a => a.Account);
+            modelbuilder.Entity<Chat>()
+                .HasOne(c => c.Account)
+                .WithOne(a => a.Chat)
+                .HasForeignKey<Chat>(d => d.IDCS);
 
             //Account - AccountRole - Role
             modelbuilder.Entity<Role>().HasMany(a => a.Accounts)
@@ -69,25 +70,25 @@ namespace API52.Context
             //Employee - TicketRequest
             modelbuilder.Entity<Employee>()
                 .HasMany(t => t.TicketRequests)
-                .WithOne(e => e.Employee);
-
-            //Status - TicketRequest
-            modelbuilder.Entity<Status>()
-                .HasMany(t => t.TicketRequests)
-                .WithOne(s => s.Status);
+                .WithOne(e => e.Employee)
+                .HasForeignKey(bc => bc.NIK);
 
             //ticket request -> Ticket History <- status
-            modelbuilder.Entity<TicketHistory>()
-        .HasKey(bc => new { bc.IdTicket, bc.IdStat});
-            modelbuilder.Entity<TicketHistory>()
-                .HasOne(bc => bc.TicketRequest)
-                .WithMany(b => b.TicketHistories)
-                .HasForeignKey(bc => bc.IdTicket);
-            modelbuilder.Entity<TicketHistory>()
-                .HasOne(bc => bc.Status)
-                .WithMany(c => c.TicketHistories)
-                .HasForeignKey(bc => bc.IdStat);
-
+            modelbuilder.Entity<Status>().HasMany(a => a.TicketRequests)
+                .WithMany(b => b.Statuses).UsingEntity<TicketHistory>
+                (c => c.HasOne(d => d.TicketRequest)
+                .WithMany().HasForeignKey(e => e.IdTicket), f => f.HasOne(g => g.Status)
+                .WithMany().HasForeignKey(h => h.IdStat));
+            //    modelbuilder.Entity<TicketHistory>()
+            //.HasKey(bc => new { bc.IdTicket, bc.IdStat });
+            //    modelbuilder.Entity<TicketHistory>()
+            //        .HasOne(bc => bc.TicketRequest)
+            //        .WithMany(b => b.TicketHistories)
+            //        .HasForeignKey(bc => bc.IdTicket);
+            //    modelbuilder.Entity<TicketHistory>()
+            //        .HasOne(bc => bc.Status)
+            //        .WithMany(c => c.TicketHistories)
+            //        .HasForeignKey(bc => bc.IdStat);
         }
     }
 }

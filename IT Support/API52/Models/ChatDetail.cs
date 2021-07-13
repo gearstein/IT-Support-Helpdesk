@@ -16,7 +16,7 @@ namespace API52.Models
         public string Message { get; set; }
         public DateTime SendDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public int IDChat{ get; set; }
+        public int ChatID { get; set; }
 
         [JsonIgnore]
         public virtual Chat Chat { get; set; }
