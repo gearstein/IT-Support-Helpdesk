@@ -19,7 +19,7 @@ namespace API52.Models
         public DateTime StartDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public int IDStat { get; set; }
-        public int NIK { get; set; }
+        public string NIK { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<TicketHistory> TicketHistories{ get; set; }

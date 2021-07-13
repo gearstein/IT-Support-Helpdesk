@@ -38,6 +38,8 @@ namespace API52.Repository.Data
                     string passwordHash = BCrypt.Net.BCrypt.HashPassword(registerVM.Password);
                     var role1 = context.Roles.Single(a => a.IDRole == 1);
                     var role2 = context.Roles.Single(a => a.IDRole == 2);
+                    var role3 = context.Roles.Single(a => a.IDRole == 3);
+                    var role4 = context.Roles.Single(a => a.IDRole == 4);
                     var account = new Account()
                     {
                         NIK = employee.NIK,
@@ -45,7 +47,7 @@ namespace API52.Repository.Data
                         Roles = new List<Role>()
                     };
                     //account.Roles.Add(role1);
-                    account.Roles.Add(role1);
+                    account.Roles.Add(role4);
                     context.Accounts.Add(account);
                     context.SaveChanges();
                     //account.NIK = registerVM.NIK;

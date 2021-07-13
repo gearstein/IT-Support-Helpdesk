@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API52.Migrations
 {
-    public partial class updated_context : Migration
+    public partial class NewMigrate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
