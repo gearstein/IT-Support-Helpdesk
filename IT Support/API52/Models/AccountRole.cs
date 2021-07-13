@@ -12,7 +12,7 @@ namespace API52.Models
     public class AccountRole
     {
         [Key]
-        public int NIK { get; set; }
+        public string NIK { get; set; }
         public int IDRole { get; set; }
 
         [JsonIgnore]

@@ -7,7 +7,7 @@ namespace API52.ViewModel
 {
     public class RegisterVM
     {
-        public int NIK { get; set; }
+        public string NIK { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

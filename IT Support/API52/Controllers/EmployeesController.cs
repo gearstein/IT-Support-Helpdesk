@@ -24,41 +24,41 @@ namespace API52.Controllers
         {
             this.employeerepository = employeeRepository;
         }
-        //[AllowAnonymous]
-        //[HttpPost]
-        //[Route("Register")]
-        //public ActionResult Register(RegisterVM registerVM)
-        //{
-        //    try
-        //    {
-        //        var insert = employeerepository.Register(registerVM);
-        //        if (insert == 3)
-        //        {
-        //            var get = Ok(new { status = HttpStatusCode.OK, result = insert, messasge = "Register Success" });
-        //            return get;
-        //        }
-        //        else if (insert == 2)
-        //        {
-        //            var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "Email Sudah Terdaftar" });
-        //            return get;
-        //        }
-        //        else if (insert == 1)
-        //        {
-        //            var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "NIK Sudah Terdaftar" });
-        //            return get;
-        //        }
-        //        else
-        //        {
-        //            var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "Gagal Register" });
-        //            return get;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = 0, messasge = "Gagal Register" });
-        //        return get;
-        //    }
-        //}
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Register")]
+        public ActionResult Register(RegisterVM registerVM)
+        {
+            try
+            {
+                var insert = employeerepository.Register(registerVM);
+                if (insert == 3)
+                {
+                    var get = Ok(new { status = HttpStatusCode.OK, result = insert, messasge = "Register Success" });
+                    return get;
+                }
+                else if (insert == 2)
+                {
+                    var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "Email Sudah Terdaftar" });
+                    return get;
+                }
+                else if (insert == 1)
+                {
+                    var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "NIK Sudah Terdaftar" });
+                    return get;
+                }
+                else
+                {
+                    var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "Gagal Register" });
+                    return get;
+                }
+            }
+            catch (Exception)
+            {
+                var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = 0, messasge = "Gagal Register" });
+                return get;
+            }
+        }
         ////[Authorize]
         //[HttpGet("ViewRegister")]
         //public ActionResult ViewRegister()

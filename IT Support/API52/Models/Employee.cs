@@ -15,7 +15,7 @@ namespace API52.Models
     public class Employee
     {
         [Key]
-        public int NIK { get; set; }
+        public string NIK { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

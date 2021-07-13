@@ -13,7 +13,7 @@ namespace API52.Models
     public class Account
     {
         [Key]
-        public int NIK { get; set; }
+        public string NIK { get; set; }
         public string Password { get; set; }
 
         [JsonIgnore]
@@ -21,6 +21,6 @@ namespace API52.Models
         [JsonIgnore]
         public virtual ICollection<Chat> Chats { get; set; }
         [JsonIgnore]
-        public virtual ICollection<AccountRole> AccountRoles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }
