@@ -280,7 +280,6 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\ne
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.AssemblyInfoInputs.cache
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.AssemblyInfo.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.CoreCompileInputs.cache

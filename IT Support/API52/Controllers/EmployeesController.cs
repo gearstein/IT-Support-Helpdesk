@@ -59,37 +59,37 @@ namespace API52.Controllers
                 return get;
             }
         }
-        ////[Authorize]
-        //[HttpGet("ViewRegister")]
-        //public ActionResult ViewRegister()
-        //{
-        //    try
-        //    {
-        //        var get = employeerepository.ViewRegister();
-        //        if (get == null)
-        //            return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
-        //        return Ok(get);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
-        ////[Authorize]
-        //[HttpGet("Find/{nik}")]
-        //public ActionResult FindRegister(string NIK)
-        //{
-        //    var response = employeerepository.FindRegister(NIK);
-        //    if (NIK == null)
-        //    {
-        //        var get = NotFound(new { status = HttpStatusCode.NotFound, result = response, messasge = "Not Found" });
-        //        return get;
-        //    }
-        //    else
-        //    {
-        //        var get = Ok(response);
-        //        return get;
-        //    }
-        //}
+        //[Authorize]
+        [HttpGet("ViewRegister")]
+        public ActionResult ViewRegister()
+        {
+            try
+            {
+                var get = employeerepository.ViewRegister();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        //[Authorize]
+        [HttpGet("Find/{nik}")]
+        public ActionResult FindRegister(string NIK)
+        {
+            var response = employeerepository.FindRegister(NIK);
+            if (NIK == null)
+            {
+                var get = NotFound(new { status = HttpStatusCode.NotFound, result = response, messasge = "Not Found" });
+                return get;
+            }
+            else
+            {
+                var get = Ok(response);
+                return get;
+            }
+        }
     }
 }

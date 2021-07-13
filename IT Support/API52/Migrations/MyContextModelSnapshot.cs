@@ -21,8 +21,8 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.Account", b =>
                 {
-                    b.Property<int>("NIK")
-                        .HasColumnType("int");
+                    b.Property<string>("NIK")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
@@ -34,25 +34,15 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.AccountRole", b =>
                 {
-                    b.Property<int>("NIK")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AccountNIK")
-                        .HasColumnType("int");
+                    b.Property<string>("NIK")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("IDRole")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RoleIDRole")
-                        .HasColumnType("int");
-
                     b.HasKey("NIK");
 
-                    b.HasIndex("AccountNIK");
-
-                    b.HasIndex("RoleIDRole");
+                    b.HasIndex("IDRole");
 
                     b.ToTable("tb_Tr_AccountRoles");
                 });
@@ -64,8 +54,8 @@ namespace API52.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccountNIK")
-                        .HasColumnType("int");
+                    b.Property<string>("AccountNIK")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("IDCS")
                         .HasColumnType("int");
@@ -114,10 +104,8 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.Employee", b =>
                 {
-                    b.Property<int>("NIK")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("NIK")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -197,8 +185,8 @@ namespace API52.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EmployeeNIK")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeNIK")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("IDStat")
                         .HasColumnType("int");
@@ -243,13 +231,17 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.AccountRole", b =>
                 {
-                    b.HasOne("API52.Models.Account", "Account")
-                        .WithMany("AccountRoles")
-                        .HasForeignKey("AccountNIK");
-
                     b.HasOne("API52.Models.Role", "Role")
-                        .WithMany("AccountRoles")
-                        .HasForeignKey("RoleIDRole");
+                        .WithMany()
+                        .HasForeignKey("IDRole")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API52.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("NIK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Account");
 
@@ -318,8 +310,6 @@ namespace API52.Migrations
 
             modelBuilder.Entity("API52.Models.Account", b =>
                 {
-                    b.Navigation("AccountRoles");
-
                     b.Navigation("Chats");
                 });
 
@@ -333,11 +323,6 @@ namespace API52.Migrations
                     b.Navigation("Account");
 
                     b.Navigation("TicketRequests");
-                });
-
-            modelBuilder.Entity("API52.Models.Role", b =>
-                {
-                    b.Navigation("AccountRoles");
                 });
 
             modelBuilder.Entity("API52.Models.Status", b =>

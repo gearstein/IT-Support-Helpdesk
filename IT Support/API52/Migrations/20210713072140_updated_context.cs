@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API52.Migrations
 {
-    public partial class createdatabase : Migration
+    public partial class updated_context : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace API52.Migrations
                 name: "tb_M_Employees",
                 columns: table => new
                 {
-                    NIK = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NIK = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -53,7 +52,7 @@ namespace API52.Migrations
                 name: "tb_M_Accounts",
                 columns: table => new
                 {
-                    NIK = table.Column<int>(type: "int", nullable: false),
+                    NIK = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -80,7 +79,7 @@ namespace API52.Migrations
                     IDStat = table.Column<int>(type: "int", nullable: false),
                     NIK = table.Column<int>(type: "int", nullable: false),
                     StatusIDStat = table.Column<int>(type: "int", nullable: true),
-                    EmployeeNIK = table.Column<int>(type: "int", nullable: true)
+                    EmployeeNIK = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,27 +102,24 @@ namespace API52.Migrations
                 name: "tb_Tr_AccountRoles",
                 columns: table => new
                 {
-                    NIK = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IDRole = table.Column<int>(type: "int", nullable: false),
-                    AccountNIK = table.Column<int>(type: "int", nullable: true),
-                    RoleIDRole = table.Column<int>(type: "int", nullable: true)
+                    NIK = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IDRole = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tb_Tr_AccountRoles", x => x.NIK);
                     table.ForeignKey(
-                        name: "FK_tb_Tr_AccountRoles_tb_M_Accounts_AccountNIK",
-                        column: x => x.AccountNIK,
+                        name: "FK_tb_Tr_AccountRoles_tb_M_Accounts_NIK",
+                        column: x => x.NIK,
                         principalTable: "tb_M_Accounts",
                         principalColumn: "NIK",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_tb_Tr_AccountRoles_tb_M_Roles_RoleIDRole",
-                        column: x => x.RoleIDRole,
+                        name: "FK_tb_Tr_AccountRoles_tb_M_Roles_IDRole",
+                        column: x => x.IDRole,
                         principalTable: "tb_M_Roles",
                         principalColumn: "IDRole",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -134,7 +130,7 @@ namespace API52.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IDTicket = table.Column<int>(type: "int", nullable: false),
                     IDCS = table.Column<int>(type: "int", nullable: false),
-                    AccountNIK = table.Column<int>(type: "int", nullable: true)
+                    AccountNIK = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -235,14 +231,9 @@ namespace API52.Migrations
                 column: "StatusIDStat");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tb_Tr_AccountRoles_AccountNIK",
+                name: "IX_tb_Tr_AccountRoles_IDRole",
                 table: "tb_Tr_AccountRoles",
-                column: "AccountNIK");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_tb_Tr_AccountRoles_RoleIDRole",
-                table: "tb_Tr_AccountRoles",
-                column: "RoleIDRole");
+                column: "IDRole");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

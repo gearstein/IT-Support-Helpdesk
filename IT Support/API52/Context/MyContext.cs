@@ -42,15 +42,12 @@ namespace API52.Context
                 .HasMany(c => c.Chats)
                 .WithOne(a => a.Account);
 
-            //Account - AccountRole
-            modelbuilder.Entity<Account>()
-                .HasMany(ac => ac.AccountRoles)
-                .WithOne(a => a.Account);
-
-            //Role - AccountRole
-            modelbuilder.Entity<Role>()
-                .HasMany(ac => ac.AccountRoles)
-                .WithOne(r => r.Role);
+            //Account - AccountRole - Role
+            modelbuilder.Entity<Role>().HasMany(a => a.Accounts)
+                .WithMany(b => b.Roles).UsingEntity<AccountRole>
+                (c => c.HasOne(d => d.Account)
+                .WithMany().HasForeignKey(e => e.NIK), f => f.HasOne(g => g.Role)
+                .WithMany().HasForeignKey(h => h.IDRole));
 
             //Chat - ChatDetail
             modelbuilder.Entity<Chat>()

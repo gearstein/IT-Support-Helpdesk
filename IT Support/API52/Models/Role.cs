@@ -15,6 +15,6 @@ namespace API52.Models
         public int IDRole { get; set; }
         public string RoleName { get; set; }
         [JsonIgnore]
-        public virtual ICollection<AccountRole> AccountRoles { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

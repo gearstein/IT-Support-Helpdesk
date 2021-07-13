@@ -25,40 +25,40 @@ namespace API52.Repository.Data
             this.configuration = config;
             this.context = myContext;
         }
-        //public int Login(LoginVM loginVM)
-        //{
-        //    var employee = new Employee();
-        //    var account = new Account();
-        //    var alternatif = context.Accounts.Find(loginVM.NIK);
-        //    if (alternatif != null)
-        //    {
-        //        var test = context.Accounts.FirstOrDefault(a => a.NIK == loginVM.NIK && a.Password == loginVM.Password);
-        //        if (test != null)
-        //        {
-        //            return 1;
-        //        }
-        //        else
-        //        {
-        //            return 0;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        var cekEmail = context.Employees.FirstOrDefault(a => a.Email == loginVM.Email);
-        //        var cekNIK = context.Employees.Find(cekEmail.NIK);
-        //        var hasedpassword = context.Accounts.Find(cekNIK.NIK);
-        //        var validate = BCrypt.Net.BCrypt.Verify(loginVM.Password, hasedpassword.Password);
-        //        var cekPass = context.Accounts.FirstOrDefault(a => a.NIK == cekNIK.NIK && a.Password == loginVM.Password);
-        //        if (cekEmail != null && validate)
-        //        {
-        //            return 1;
-        //        }
-        //        else
-        //        {
-        //            return 0;
-        //        }
-        //    }
-        //}
+        public int Login(LoginVM loginVM)
+        {
+            var employee = new Employee();
+            var account = new Account();
+            var alternatif = context.Accounts.Find(loginVM.NIK);
+            if (alternatif != null)
+            {
+                var test = context.Accounts.FirstOrDefault(a => a.NIK == loginVM.NIK && a.Password == loginVM.Password);
+                if (test != null)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                var cekEmail = context.Employees.FirstOrDefault(a => a.Email == loginVM.Email);
+                var cekNIK = context.Employees.Find(cekEmail.NIK);
+                var hasedpassword = context.Accounts.Find(cekNIK.NIK);
+                var validate = BCrypt.Net.BCrypt.Verify(loginVM.Password, hasedpassword.Password);
+                var cekPass = context.Accounts.FirstOrDefault(a => a.NIK == cekNIK.NIK && a.Password == loginVM.Password);
+                if (cekEmail != null && validate)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
         //public int ChangePassword(ChangeVM changeVM)
         //{
         //    var employee = new Employee();
@@ -123,32 +123,32 @@ namespace API52.Repository.Data
         //    }
         //}
 
-        //public string GenerateTokenLogin(LoginVM loginVM)
-        //{
-        //    var data = (from account in MyContext.Accounts
-        //                join employee in MyContext.Employees
-        //                on account.NIK equals employee.NIK
-        //                join accountroles in MyContext.AccountRoles
-        //                on account.NIK equals accountroles.NIK
-        //                join role in MyContext.Roles
-        //                on accountroles.RoleID equals role.RoleID
-        //                where account.NIK == $"{loginVM.NIK}" || employee.Email == $"{loginVM.Email}"
-        //                select new
-        //                {
-        //                    Email = employee.Email,
-        //                    RoleName = role.RoleName
-        //                }).ToList();
-        //    var claims = new List<Claim>();
-        //    foreach (var item in data)
-        //    {
-        //        claims.Add(new Claim("email", item.Email));
-        //        claims.Add(new Claim("role", item.RoleName));
-        //    }
-        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
-        //    var sigin = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        //    var token = new JwtSecurityToken(configuration["Jwt:Issuer"], configuration["Jwt:Audience"],
-        //                claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: sigin);
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
-        //}
+        public string GenerateTokenLogin(LoginVM loginVM)
+        {
+            var data = (from account in MyContext.Accounts
+                        join employee in MyContext.Employees
+                        on account.NIK equals employee.NIK
+                        join accountroles in MyContext.AccountRoles
+                        on account.NIK equals accountroles.NIK
+                        join role in MyContext.Roles
+                        on accountroles.IDRole equals role.IDRole
+                        where account.NIK == $"{loginVM.NIK}" || employee.Email == $"{loginVM.Email}"
+                        select new
+                        {
+                            Email = employee.Email,
+                            RoleName = role.RoleName
+                        }).ToList();
+            var claims = new List<Claim>();
+            foreach (var item in data)
+            {
+                claims.Add(new Claim("email", item.Email));
+                claims.Add(new Claim("role", item.RoleName));
+            }
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+            var sigin = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(configuration["Jwt:Issuer"], configuration["Jwt:Audience"],
+                        claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: sigin);
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }
