@@ -47,7 +47,7 @@ namespace API52.Repository.Data
                         Roles = new List<Role>()
                     };
                     //account.Roles.Add(role1);
-                    account.Roles.Add(role4);
+                    account.Roles.Add(role1);
                     context.Accounts.Add(account);
                     context.SaveChanges();
                     //account.NIK = registerVM.NIK;

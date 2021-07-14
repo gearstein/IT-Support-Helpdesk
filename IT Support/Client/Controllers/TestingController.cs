@@ -23,7 +23,7 @@ namespace Client.Controllers
         {
             return View();
         }
-        [Authorize]
+        //[Authorize]
         public IActionResult Ajax()
         {
             return View();

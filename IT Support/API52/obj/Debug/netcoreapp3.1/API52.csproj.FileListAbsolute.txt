@@ -145,7 +145,6 @@ C:\Users\ASUS\source\repos\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj
 C:\Users\ASUS\source\repos\IT Support\API52\obj\Debug\netcoreapp3.1\API52.dll
 C:\Users\ASUS\source\repos\IT Support\API52\obj\Debug\netcoreapp3.1\API52.pdb
 C:\Users\ASUS\source\repos\IT Support\API52\obj\Debug\netcoreapp3.1\API52.genruntimeconfig.cache
-I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.AssemblyInfoInputs.cache
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.AssemblyInfo.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.CoreCompileInputs.cache
@@ -293,3 +292,4 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\ne
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.pdb
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.genruntimeconfig.cache
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
