@@ -16,10 +16,8 @@ namespace API52.Models
         [Key]
         public int IDDetail { get; set; }
         public string Message { get; set; }
-        public Date SendDate { get; set; }
-        public Date UpdateDate { get; set; }
-        public Time SentTime { get; set; }
-        public Time UpdateTime { get; set; }
+        public DateTime SendDate { get; set; }
+        public DateTime UpdateDate { get; set; }
         public int ChatID { get; set; }
 
         [JsonIgnore]

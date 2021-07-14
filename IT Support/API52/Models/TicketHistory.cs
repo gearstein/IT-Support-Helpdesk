@@ -15,8 +15,8 @@ namespace API52.Models
     {
         [Key]
         public string Title { get; set; }
-        public Date StartDate { get; set; }
-        public Date UpdateDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime UpdateDate { get; set; }
         public int IdTicket { get; set; }
         public int IdStat { get; set; }
 
