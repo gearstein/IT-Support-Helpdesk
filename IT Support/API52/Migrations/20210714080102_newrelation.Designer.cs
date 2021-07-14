@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API52.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210713094711_createcontext")]
-    partial class createcontext
+    [Migration("20210714080102_newrelation")]
+    partial class newrelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -2,7 +2,7 @@
 
 namespace API52.Migrations
 {
-    public partial class createcontext : Migration
+    public partial class newrelation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

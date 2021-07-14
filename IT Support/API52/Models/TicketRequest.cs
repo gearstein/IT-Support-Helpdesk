@@ -20,7 +20,6 @@ namespace API52.Models
         public string Message { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime UpdateDate { get; set; }
-
         public int IDStat { get; set; }
         public string NIK { get; set; }
 
