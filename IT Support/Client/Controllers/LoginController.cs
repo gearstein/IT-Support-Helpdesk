@@ -32,7 +32,7 @@ namespace Client.Controllers
                 return RedirectToAction("index");
             }
             HttpContext.Session.SetString("JWToken", jwtoken.Token);
-            return RedirectToAction("ajax", "testing");
+            return RedirectToAction("dashboard", "admin");
         }
     }
 }

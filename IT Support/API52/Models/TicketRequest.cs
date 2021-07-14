@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Graph;
+using Nest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,11 @@ namespace API52.Models
         public  int IDTicket { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public Date StartDate { get; set; }
+        public Date UpdateDate { get; set; }
+        public Time StartTime { get; set; }
+        public Time UpdateTime { get; set; }
+
         public int IDStat { get; set; }
         public string NIK { get; set; }
 

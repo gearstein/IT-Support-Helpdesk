@@ -387,7 +387,6 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\n
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Dashboard.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Login.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Testing.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Testing\Ajax.cshtml.g.cs
@@ -408,3 +407,10 @@ I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Deb
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Junior.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Helpdesk.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Engineer.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Dashboard.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Engineer.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Helpdesk.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Junior.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Ticket.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayout.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
