@@ -1,12 +1,15 @@
 ﻿using API52.Base;
 using API52.Models;
 using API52.Repository.Data;
+using API52.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace API52.Controllers
@@ -16,9 +19,53 @@ namespace API52.Controllers
     [EnableCors("AllowOrigin")]
     public class TicketRequestsController : BaseController<TicketRequest, TicketRequestRepository, int>
     {
+        private readonly TicketRequestRepository ticketrequestRepository;
         public TicketRequestsController(TicketRequestRepository ticketrequestRepository) : base(ticketrequestRepository)
         {
+            this.ticketrequestRepository = ticketrequestRepository;
+        }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Request")]
+        public ActionResult Request(TicketRequestVM ticketrequestVM)
+        {
+            try
+            {
+                var insert = ticketrequestRepository.Request(ticketrequestVM);
+                if (insert == 1)
+                {
+                    var get = Ok(new { status = HttpStatusCode.OK, result = insert, messasge = "Request Success" });
+                    return get;
+                }
+                else
+                {
+                    var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = insert, messasge = "Gagal Request" });
+                    return get;
+                }
+            }
+            catch (Exception)
+            {
+                var get = BadRequest(new { status = HttpStatusCode.BadRequest, result = 0, messasge = "Gagal Request" });
+                return get;
+            }
+        }
+
+        //[Authorize]
+        [HttpGet("ViewRequest")]
+        public ActionResult ViewRequest()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewRequest();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

@@ -44,6 +44,11 @@ namespace Client.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        //public async Task<JsonResult> GetRegistrasiView()
+        //{
+        //    var result = await repository.GetRegistrasiView();
+        //    return Json(result);
+        //}
     }
 }
     

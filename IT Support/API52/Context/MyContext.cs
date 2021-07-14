@@ -77,8 +77,8 @@ namespace API52.Context
             modelbuilder.Entity<Status>().HasMany(a => a.TicketRequests)
                 .WithMany(b => b.Statuses).UsingEntity<TicketHistory>
                 (c => c.HasOne(d => d.TicketRequest)
-                .WithMany().HasForeignKey(e => e.IdTicket), f => f.HasOne(g => g.Status)
-                .WithMany().HasForeignKey(h => h.IdStat));
+                .WithMany().HasForeignKey(e => e.IDTicket), f => f.HasOne(g => g.Status)
+                .WithMany().HasForeignKey(h => h.IDStat));
             //    modelbuilder.Entity<TicketHistory>()
             //.HasKey(bc => new { bc.IdTicket, bc.IdStat });
             //    modelbuilder.Entity<TicketHistory>()

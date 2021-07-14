@@ -17,8 +17,8 @@ namespace API52.Models
         public string Title { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public int IdTicket { get; set; }
-        public int IdStat { get; set; }
+        public int IDTicket { get; set; }
+        public int IDStat { get; set; }
 
         [JsonIgnore]
         public virtual TicketRequest TicketRequest { get; set; }
