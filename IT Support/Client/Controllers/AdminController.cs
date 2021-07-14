@@ -24,6 +24,21 @@ namespace Client.Controllers
             return View();
         }
 
+        public IActionResult Junior()
+        {
+            return View();
+        }
+
+        public IActionResult Helpdesk()
+        {
+            return View();
+        }
+
+        public IActionResult Engineer()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
