@@ -73,11 +73,10 @@ $(document).ready(function () {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
-                    return `<button value="" class="btn btn-warning">Detail</button>
-                            <button value="" onclick="delEmployee(this.value)" class="btn btn-danger">Delete</button>`
+                    return `<button value="" class="btn btn-info" data-toggle="modal" data-target="#getrequest">Detail</button>
+                            <button value="" onclick="delEmployee(this.value)" class="btn btn-danger ViewRequest">Delete</button>`
                 }
             }
-
         ],
         buttons: {
             buttons: [
@@ -88,6 +87,20 @@ $(document).ready(function () {
                 { extend: 'print', className: 'btn btn-primary' },
             ]
         }
+    })
+    $(".ViewRequest").click(function () {
+        $.ajax({
+            url: $(this).data("url")
+        }).done((result) => {
+            //title
+            title = result.title;
+            $("#Title").text(title);
+            //detail
+            detail = result.detail;
+            $("#Detail").text(detail);
+        }).fail((error) => {
+            console.log(error);
+        });
     })
 })
 
