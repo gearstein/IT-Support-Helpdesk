@@ -29,14 +29,14 @@ namespace Client.Repositories.Data
             };
         }
 
-        public async Task<List<GetallregisterVM>> GetRegistrasiView()
+        public async Task<List<TicketRequestVM>> GetRequestView()
         {
-            List<GetallregisterVM> entities = new List<GetallregisterVM>();
+            List<TicketRequestVM> entities = new List<TicketRequestVM>();
 
-            using (var response = await httpClient.GetAsync(request + "ViewRegister/"))
+            using (var response = await httpClient.GetAsync(request + "ViewRequest/"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
-                entities = JsonConvert.DeserializeObject<List<GetallregisterVM>>(apiResponse);
+                entities = JsonConvert.DeserializeObject<List<TicketRequestVM>>(apiResponse);
             }
             return entities;
         }

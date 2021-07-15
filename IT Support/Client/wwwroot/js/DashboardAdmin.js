@@ -1,6 +1,6 @@
-﻿//Data Tabel Ticket
+﻿//Data Tabel Master
 $(document).ready(function () {
-    $('#registerData').DataTable({
+    $('#masterData').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -18,7 +18,48 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "birthDate"
+                "data": "email"
+            },
+            {
+                "data": "phoneNumber",
+                render: function (data, type, row) {
+                    return "+62" + data.slice(1);
+                }
+            },
+            {
+                "data": "roleName"
+            }
+        ],
+        buttons: {
+            buttons: [
+                { extend: 'copy', className: 'btn btn-primary' },
+                { extend: 'csv', className: 'btn btn-primary' },
+                { extend: 'excel', className: 'btn btn-primary' },
+                { extend: 'pdf', className: 'btn btn-primary', orientation: 'landscape' },
+                { extend: 'print', className: 'btn btn-primary' },
+            ]
+        }
+    })
+})
+
+//Data Tabel Ticket
+$(document).ready(function () {
+    $('#registerData').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        "ajax": {
+            url: "/admin/getrequestview/",
+            dataSrc: ""
+        },
+        "columns": [
+            {
+                /*"data": "firstName"*/
+                "data": null,
+                "render": function (data, type, row) {
+                    return row["firstName"] + " " + row["lastName"];
+                }
             },
             {
                 "data": "email"
@@ -31,28 +72,7 @@ $(document).ready(function () {
             },
             {
                 "data": "roleName"
-            },
-            {
-                "data": "salary"
-            },
-            {
-                "data": "degree"
-            },
-            {
-                "data": "gpa"
-            },
-            {
-                "data": "universityName"
-            },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return "<button class = \"btn btn-primary\">Edit</button>";
-                }
             }
-        ],
-        columnDefs: [
-            { orderable: false, targets: 10 }
         ],
         buttons: {
             buttons: [

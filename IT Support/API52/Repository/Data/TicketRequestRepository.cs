@@ -16,8 +16,11 @@ namespace API52.Repository.Data
             this.context = myContext;
         }
 
-        public int Request (TicketRequestVM ticketRequestVM)
+        public int Request(TicketRequestVM ticketRequestVM)
         {
+            var stat1 = context.Statuses.Single(a => a.IDStat == 1);
+            var stat2 = context.Statuses.Single(a => a.IDStat == 2);
+            var stat3 = context.Statuses.Single(a => a.IDStat == 3);
             //TicketRequest
             var request = new TicketRequest();
             request.IDTicket = ticketRequestVM.IDTicket;
@@ -34,10 +37,9 @@ namespace API52.Repository.Data
 
         public IQueryable ViewRequest()
         {
-            var request = (from tr in MyContext.TicketRequests 
+            var request = (from tr in MyContext.TicketRequests
                            join emp in MyContext.Employees on tr.NIK equals emp.NIK
-                           join th in MyContext.TicketHistories on tr.IDTicket equals th.IDTicket
-                           join st in MyContext.Statuses on th.IDStat equals st.IDStat
+                           join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            select new
                            {
                                tr.IDTicket,
@@ -46,7 +48,7 @@ namespace API52.Repository.Data
                                st.Detail,
                                tr.StartDate,
                                tr.UpdateDate,
-                               emp.NIK
+                               emp.NIK,
                            });
             return request;
         }

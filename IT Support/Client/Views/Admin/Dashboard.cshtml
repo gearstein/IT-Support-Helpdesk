@@ -40,7 +40,7 @@
 
                     <div class="form-group">
                         <label for="startdate">Complaint Date</label>
-                        <input type="datetime-local" class="form-control" id="startdate" placeholder="">
+                        <input type="date" class="form-control" id="startdate" placeholder="">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -49,7 +49,18 @@
                         </div>
                     </div>
 
-                    @*<div class="form-group">
+                    <div class="form-group">
+                        <label for="starttime">Complaint Time</label>
+                        <input type="time" class="form-control" id="startdate" placeholder="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please choose a time.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="status" class="col-form-label">Status :</label>
                         <select id="status" name="status" required>
                             <option value=#>Pilih</option>
@@ -58,7 +69,7 @@
                             <option value=3>Complete</option>
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
-                    </div>*@
+                    </div>
 
                     <div class="form-group">
                         <label for="nik">NIK</label>
@@ -88,7 +99,9 @@
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Complaint Date</th>
+                <th scope="col">Complaint Time</th>
                 <th scope="col">Update Complaint Date</th>
+                <th scope="col">Update Complaint Time</th>
                 <th scope="col">Id Ticket</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
@@ -100,32 +113,47 @@
     </table>
 </div>
 
+<!--Datatable For Table-->
+<div class="table-responsive">
+    <table class="table table-striped table-hover" id="masterData">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Role Name</th>
+            </tr>
+        </thead>
+        <!--Show isi data table link to ajax js-->
+        <tbody id="showData">
+        </tbody>
+    </table>
+</div>
 
 <!--Create Chart bottom table-->
-
 <!--<div class="row mt-4">-->
-    <!-- Pie Chart -->
-    <!--<div class="col-xl-5">
-        <div class="card shadow mb-4">-->
-            <!-- Card Header - Dropdown -->
-            <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Top Gender</h6>
-            </div>-->
-            <!-- Card Body -->
-            <!--<div class="card-body">
-                <div id="piechart"></div>
-            </div>
+<!-- Pie Chart -->
+<!--<div class="col-xl-5">
+    <div class="card shadow mb-4">-->
+<!-- Card Header - Dropdown -->
+<!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h6 class="m-0 font-weight-bold text-primary">Top Gender</h6>
+</div>-->
+<!-- Card Body -->
+<!--<div class="card-body">
+            <div id="piechart"></div>
         </div>
     </div>
+</div>
 
-    <div class="col-xl-7">
-        <div class="card shadow mb-4">-->
-            <!-- Card Header - Dropdown -->
-            <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Top University</h6>
-            </div>-->
-            <!-- Card Body -->
-            <!--<div class="card-body">
+<div class="col-xl-7">
+    <div class="card shadow mb-4">-->
+<!-- Card Header - Dropdown -->
+<!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h6 class="m-0 font-weight-bold text-primary">Top University</h6>
+</div>-->
+<!-- Card Body -->
+<!--<div class="card-body">
                 <div id="barChart"></div>
             </div>
         </div>
@@ -134,7 +162,7 @@
 
 
 @section Scripts{
-    <script type="text/javascript" src="~/js/ajax.js"></script>
+    <script type="text/javascript" src="~/js/DashboardAdmin.js"></script>
 }
 
 

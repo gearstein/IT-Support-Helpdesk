@@ -1,4 +1,7 @@
-﻿using Client.Models;
+﻿using API52.Models;
+using Client.Base;
+using Client.Models;
+using Client.Repositories.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,9 +14,14 @@ using System.Threading.Tasks;
 namespace Client.Controllers
 {
     //[Authorize]
-    public class AdminController : Controller
+    public class AdminController : BaseController<TicketRequest, TicketRequestRepository, int>
     {
-        [Authorize(Roles = "employee, junior, helpdesk, engineer")]
+        private readonly TicketRequestRepository repository;
+        public AdminController(TicketRequestRepository repository) : base(repository)
+        {
+            this.repository = repository;
+        }
+        [Authorize(Roles = "Employee, Junior Helpdesk, Helpdesk, Engineer")]
         public IActionResult Dashboard()
         {
             return View();
@@ -29,19 +37,19 @@ namespace Client.Controllers
             return View();
         }
 
-        [Authorize(Roles = "junior")]
+        [Authorize(Roles = "Junior Helpdesk")]
         public IActionResult Junior()
         {
             return View();
         }
 
-        [Authorize(Roles = "helpdesk")]
+        [Authorize(Roles = "Helpdesk")]
         public IActionResult Helpdesk()
         {
             return View();
         }
 
-        [Authorize(Roles = "engineer")]
+        [Authorize(Roles = "Engineer")]
         public IActionResult Engineer()
         {
             return View();
@@ -52,11 +60,11 @@ namespace Client.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        //public async Task<JsonResult> GetRegistrasiView()
-        //{
-        //    var result = await repository.GetRegistrasiView();
-        //    return Json(result);
-        //}
+        public async Task<JsonResult> GetRequestView()
+        {
+            var result = await repository.GetRequestView();
+            return Json(result);
+        }
     }
 }
     

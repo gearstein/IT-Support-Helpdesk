@@ -427,3 +427,12 @@ I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Deb
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Chat.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ChatLayout.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Chat.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Chat.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Chat.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Login\e.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Login\h.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Login\j.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ChatLayout.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayoutE.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayoutH.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayoutJ.cshtml.g.cs
