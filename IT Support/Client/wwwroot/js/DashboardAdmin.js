@@ -85,6 +85,7 @@ $(document).ready(function () {
         }
     })
 })
+
 //Submit Ticket
 $("#saved").click(function () {
     $("#saved").submit(function (e) {
@@ -93,23 +94,23 @@ $("#saved").click(function () {
     /*console.log("Input Berhasil");*/
     var obj = new Object(); //sesuaikan sendiri nama objectnya dan beserta isinya
     //ini ngambil value dari tiap inputan di form nya
+    obj.title = $("#title").val();
+    obj.message = $("#message").val();
+    obj.startdate = $("#startdate").val();
+    obj.updatedate = $("#updatedate").val();
     obj.nik = $("#nik").val();
-    obj.firstName = $("#first-name").val();
-    obj.lastName = $("#last-name").val();
-    obj.Gender = $("#gender").val();
-    obj.email = $("#email").val();
-    obj.salary = $("#salary").val();
-    obj.phoneNumber = $("#phone-number").val();
-    obj.birthDate = $("#birth-date").val();
-    obj.password = $("#password").val();
-    obj.degree = $("#degree").val();
-    obj.GPA = $("#gpa").val();
-    obj.universityid = $("#uniname").val();
-    obj.roleName = 1;
+    obj.detail = 1;
+    //obj.salary = $("#salary").val();
+    //obj.phoneNumber = $("#phone-number").val();
+    //obj.birthDate = $("#birth-date").val();
+    //obj.password = $("#password").val();
+    //obj.degree = $("#degree").val();
+    //obj.GPA = $("#gpa").val();
+    //obj.universityid = $("#uniname").val();
     /*console.log(obj);*/
     //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
     $.ajax({
-        url: "https://localhost:44311/API/Employees/Register",
+        url: "https://localhost:44311/API/TicketRequest/Request",
         type: "POST",
         data: JSON.stringify(obj),
         contentType: "application/json",

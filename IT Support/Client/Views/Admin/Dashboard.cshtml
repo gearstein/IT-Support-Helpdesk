@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="startdate">Complaint Date</label>
-                        <input type="date" class="form-control" id="startdate" placeholder="">
+                        <label for="startdate">Complaint Time</label>
+                        <input type="datetime-local" class="form-control" id="startdate" placeholder="">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -50,8 +50,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="starttime">Complaint Time</label>
-                        <input type="time" class="form-control" id="startdate" placeholder="">
+                        <label for="starttime">Update Time</label>
+                        <input type="datetime-local" class="form-control" id="updatedate" placeholder="">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label for="status" class="col-form-label">Status :</label>
                         <select id="status" name="status" required>
                             <option value=#>Pilih</option>
@@ -69,7 +69,7 @@
                             <option value=3>Complete</option>
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
-                    </div>
+                    </div>*@
 
                     <div class="form-group">
                         <label for="nik">NIK</label>
@@ -98,9 +98,9 @@
         <thead>
             <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Complaint Date</th>
+                @*<th scope="col">Complaint Date</th>*@
                 <th scope="col">Complaint Time</th>
-                <th scope="col">Update Complaint Date</th>
+                @*<th scope="col">Update Complaint Date</th>*@
                 <th scope="col">Update Complaint Time</th>
                 <th scope="col">Id Ticket</th>
                 <th scope="col">Status</th>
