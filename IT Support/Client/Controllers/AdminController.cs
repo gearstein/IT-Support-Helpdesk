@@ -13,7 +13,7 @@ namespace Client.Controllers
     //[Authorize]
     public class AdminController : Controller
     {
-
+        [Authorize(Roles = "employee, junior, helpdesk, engineer")]
         public IActionResult Dashboard()
         {
             return View();
@@ -24,16 +24,24 @@ namespace Client.Controllers
             return View();
         }
 
+        public IActionResult Chat()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "junior")]
         public IActionResult Junior()
         {
             return View();
         }
 
+        [Authorize(Roles = "helpdesk")]
         public IActionResult Helpdesk()
         {
             return View();
         }
 
+        [Authorize(Roles = "engineer")]
         public IActionResult Engineer()
         {
             return View();

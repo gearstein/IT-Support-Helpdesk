@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LoginLayout";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/assets/img/hero-img.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Sign In Junior Helpdesk</h3>
+                            <p class="mb-4"></p>
+                        </div>
+                        <form action="/login/authj/" method="post">
+                            <div class="form-group first">
+                                <label for="username">Email</label>
+                                <input type="text" class="form-control" id="Email" name="Email">
+
+                            </div>
+                            <div class="form-group last mb-4">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="Password" name="Password">
+
+                            </div>
+                            <div class="d-flex mb-5 align-items-center">                              
+                            </div>
+
+                            <button type="submit" class="btn btn-block btn-primary">
+                                Login
+                            </button>
+                            <span class="d-block text-left my-4 text-muted"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/popper.min.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/main.js"></script>
+
+
