@@ -68,7 +68,16 @@ $(document).ready(function () {
             },
             {
                 "data": "detail"
+            },
+            {
+                "data": null,
+                targets: 'no-sort', orderable: false,
+                render: function (data, type, row) {
+                    return `<button value="" class="btn btn-warning">Detail</button>
+                            <button value="" onclick="delEmployee(this.value)" class="btn btn-danger">Delete</button>`
+                }
             }
+
         ],
         buttons: {
             buttons: [
@@ -92,10 +101,10 @@ $("#saved").click(function () {
     //ini ngambil value dari tiap inputan di form nya
     obj.title = $("#title").val();
     obj.message = $("#message").val();
-    obj.startdate = $("#startdate").val();
-    obj.updatedate = $("#updatedate").val();
+    obj.startDate = $("#startdate").val();
+    obj.updateDate = $("#updatedate").val();
     obj.nik = $("#nik").val();
-    obj.detail = 1;
+   /* obj.detail = 1;*/
     //obj.salary = $("#salary").val();
     //obj.phoneNumber = $("#phone-number").val();
     //obj.birthDate = $("#birth-date").val();
@@ -106,7 +115,7 @@ $("#saved").click(function () {
     /*console.log(obj);*/
     //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
     $.ajax({
-        url: "https://localhost:44311/API/TicketRequest/Request",
+        url: "https://localhost:44311/API/TicketRequests/Request",
         type: "POST",
         data: JSON.stringify(obj),
         contentType: "application/json",

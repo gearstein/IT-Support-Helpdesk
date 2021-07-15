@@ -296,3 +296,4 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\ne
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\Nest.dll
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
