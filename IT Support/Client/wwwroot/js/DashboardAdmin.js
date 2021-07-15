@@ -55,23 +55,19 @@ $(document).ready(function () {
         },
         "columns": [
             {
-                /*"data": "firstName"*/
-                "data": null,
-                "render": function (data, type, row) {
-                    return row["firstName"] + " " + row["lastName"];
-                }
+                "data": "title"
             },
             {
-                "data": "email"
+                "data": "startDate"
             },
             {
-                "data": "phoneNumber",
-                render: function (data, type, row) {
-                    return "+62" + data.slice(1);
-                }
+                "data": "updateDate"
             },
             {
-                "data": "roleName"
+                "data": "idTicket"
+            },
+            {
+                "data": "detail"
             }
         ],
         buttons: {

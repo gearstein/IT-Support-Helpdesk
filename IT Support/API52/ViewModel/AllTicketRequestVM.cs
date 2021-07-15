@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace API52.ViewModel
 {
-    public class TicketRequestVM
+    public class AllTicketRequestVM
     {
         public int IDTicket { get; set; }
         public string Title { get; set; }
