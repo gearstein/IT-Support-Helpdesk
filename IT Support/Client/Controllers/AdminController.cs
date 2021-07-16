@@ -21,13 +21,27 @@ namespace Client.Controllers
         {
             this.repository = repository;
         }
+<<<<<<< HEAD
+        //[Authorize(Roles = "employee, junior, helpdesk, engineer")]
+=======
         [Authorize(Roles = "Employee, Junior Helpdesk, Helpdesk, Engineer")]
+>>>>>>> 3c167f7459d48f81490332c1cda7c62c614a1b16
         public IActionResult Dashboard()
         {
             return View();
         }
 
-        public IActionResult Ticket()
+        public IActionResult Master()
+        {
+            return View();
+        }
+
+        public IActionResult MasterH()
+        {
+            return View();
+        }
+
+        public IActionResult MasterE()
         {
             return View();
         }
@@ -37,19 +51,31 @@ namespace Client.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+        //[Authorize(Roles = "junior")]
+=======
         [Authorize(Roles = "Junior Helpdesk")]
+>>>>>>> 3c167f7459d48f81490332c1cda7c62c614a1b16
         public IActionResult Junior()
         {
             return View();
         }
 
+<<<<<<< HEAD
+        //[Authorize(Roles = "helpdesk")]
+=======
         [Authorize(Roles = "Helpdesk")]
+>>>>>>> 3c167f7459d48f81490332c1cda7c62c614a1b16
         public IActionResult Helpdesk()
         {
             return View();
         }
 
+<<<<<<< HEAD
+        //[Authorize(Roles = "engineer")]
+=======
         [Authorize(Roles = "Engineer")]
+>>>>>>> 3c167f7459d48f81490332c1cda7c62c614a1b16
         public IActionResult Engineer()
         {
             return View();
