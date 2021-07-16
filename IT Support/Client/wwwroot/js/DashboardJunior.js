@@ -42,7 +42,7 @@ $(document).ready(function () {
     })
 })
 
-//Data Tabel Ticket
+/*Data Tabel Ticket*/
 $(document).ready(function () {
     $('#registerData').DataTable({
         dom: 'Bfrtip',

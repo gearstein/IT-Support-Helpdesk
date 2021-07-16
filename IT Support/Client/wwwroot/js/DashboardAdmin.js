@@ -148,7 +148,8 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-            url: "/admin/getrequestview/",
+    /*      url: "/admin/getrequestview/",*/
+            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
             dataType: "json",
             dataSrc: ""
 
@@ -185,6 +186,24 @@ $(document).ready(function () {
         table.ajax.reload();
     }, 30000);
 
+});
+
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+window.addEventListener('load', () => {
+    var forms = document.getElementsByClassName('needs-validation');
+    for (let form of forms) {
+        form.addEventListener('submit', (evt) => {
+            if (!form.checkValidity()) {
+                evt.preventDefault();
+                evt.stopPropagation();
+            } else {
+                evt.preventDefault();
+                insert();
+            }
+            form.classList.add('was-validated');
+        });
+    }
 });
 
 //Insert fill table from form registration to db (create data)
@@ -230,19 +249,3 @@ function insert() {
     })
 }
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-window.addEventListener('load', () => {
-    var forms = document.getElementsByClassName('needs-validation');
-    for (let form of forms) {
-        form.addEventListener('submit', (evt) => {
-            if (!form.checkValidity()) {
-                evt.preventDefault();
-                evt.stopPropagation();
-            } else {
-                evt.preventDefault();
-                insert();
-            }
-            form.classList.add('was-validated');
-        });
-    }
-});
