@@ -1,13 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = "_DashboardLayoutJ";
+    Layout = "_DashboardLayout";
 }
 
-
-
 <!--Botton Request Ticket-->
-<button type="button" class="btn btn-primary mb-2 Register" data-toggle="modal" data-target=".bd-example-modal-lg">Add Ticket</button>
-
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Add Complaint</button>
 <!--Table To Request Ticket-->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -33,7 +30,6 @@
                             Please create title.
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea class="form-control" name="message" id="message" rows="3"></textarea>
@@ -63,17 +59,6 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="status" class="col-form-label">Status :</label>
-                            <select id="status" name="status" required>
-                                <option value=#>Pilih</option>
-                                <option value=1>Pending</option>
-                                <option value=2>On Going</option>
-                                <option value=3>Complete</option>
-                            </select>
-                            <div class="invalid-feedback">Example invalid custom select feedback</div>
-                        </div>
-
-                    <div class="form-group">
                         <label for="nik">NIK</label>
                         <input type="text" class="form-control" id="nik" placeholder="">
                         <div class="valid-feedback">
@@ -83,18 +68,54 @@
                             Please choose a nik.
                         </div>
                     </div>
-
                     <div class="form-group">
                     </div>
-                    <button class="btn btn-primary mb-3" id="saved1" type="submit">Create Ticket</button>
+                    <button class="btn btn-primary mb-3" type="submit">Register</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+<!--Modal Detail-->
+<div class="modal fade" id="getrequest" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Tiket Komplain</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="idticket" class="col-form-label">ID Ticket :</label>
+                    <h3 id="IDTicket"></h3>
+                </div>
+                <div class="form-group">
+                    <label for="title" class="col-form-label">Title :</label>
+                    <h3 id="Title"></h3>
+                </div>
+                <div class="form-group">
+                    <label for="startdate" class="col-form-label">Start Date :</label>
+                    <h3 id="StartDate"></h3>
+                </div>
+                <div class="form-group">
+                    <label for="updatedate" class="col-form-label">Update Date :</label>
+                    <h3 id="UpdateDate"></h3>
+                </div>
+                <div class="form-group">
+                    <label for="detail" class="col-form-label">Detail :</label>
+                    <h3 id="Detail"></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--Datatable For Table-->
 <div class="table-responsive">
@@ -103,7 +124,6 @@
             <tr>
                 <th scope="col">Id Ticket</th>
                 <th scope="col">Title</th>
-                <th scope="col">Message</th>
                 <th scope="col">Complaint Time</th>
                 <th scope="col">Update Complaint Time</th>
                 <th scope="col">Status</th>
@@ -115,7 +135,6 @@
         </tbody>
     </table>
 </div>
-
 
 
 
@@ -151,7 +170,7 @@
 
 
 @section Scripts{
-    <script type="text/javascript" src="~/js/DashboardJunior.js"></script>
+    <script type="text/javascript" src="~/js/DashboardAdmin.js"></script>
 }
 
 

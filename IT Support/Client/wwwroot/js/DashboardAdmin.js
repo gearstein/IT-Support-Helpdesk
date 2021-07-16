@@ -156,6 +156,9 @@ $(document).ready(function () {
         },
         "columns": [
             {
+                "data": "idTicket"
+            },
+            {
                 "data": "title"
             },
             {
@@ -163,9 +166,6 @@ $(document).ready(function () {
             },
             {
                 "data": "updateDate"
-            },
-            {
-                "data": "idTicket"
             },
             {
                 "data": "detail"

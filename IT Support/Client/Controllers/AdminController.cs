@@ -29,6 +29,16 @@ namespace Client.Controllers
             return View();
         }
 
+        public IActionResult Actual()
+        {
+            return View();
+        }
+
+        public IActionResult History()
+        {
+            return View();
+        }
+
         public IActionResult Master()
         {
             return View();
