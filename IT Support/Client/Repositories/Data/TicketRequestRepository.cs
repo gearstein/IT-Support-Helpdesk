@@ -18,6 +18,7 @@ namespace Client.Repositories.Data
         private readonly string request;
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly HttpClient httpClient;
+
         public TicketRequestRepository(Address address, string request = "TicketRequests/") : base(address, request)
         {
             this.address = address;

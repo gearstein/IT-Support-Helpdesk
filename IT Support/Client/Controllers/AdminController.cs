@@ -22,7 +22,7 @@ namespace Client.Controllers
             this.repository = repository;
         }
 
-        [Authorize(Roles = "Employee, Junior Helpdesk, Helpdesk, Engineer")]
+        //[Authorize(Roles = "employee, junior, helpdesk, engineer")]
 
         public IActionResult Dashboard()
         {
@@ -49,19 +49,19 @@ namespace Client.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Junior Helpdesk")]
+        //[Authorize(Roles = "junior")]
         public IActionResult Junior()
         {
             return View();
         }
 
-        [Authorize(Roles = "Helpdesk")]
+        //[Authorize(Roles = "helpdesk")]
         public IActionResult Helpdesk()
         {
             return View();
         }
 
-        [Authorize(Roles = "Engineer")]
+        //[Authorize(Roles = "engineer")]
         public IActionResult Engineer()
         {
             return View();
