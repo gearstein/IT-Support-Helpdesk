@@ -410,7 +410,6 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\n
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Engineer.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Helpdesk.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Junior.cshtml.g.cs
-C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Ticket.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayout.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
@@ -438,3 +437,6 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\n
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Master.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MasterH.cshtml.g.cs
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MasterE.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Master.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MasterE.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MasterH.cshtml.g.cs
