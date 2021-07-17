@@ -132,7 +132,6 @@
 //    })
 //})
 
-
 //Datatable and fill table
 $(document).ready(function () {
     var table = $('#registerData').DataTable({
@@ -199,7 +198,7 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
                             <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
-                            <button value="" onclick="delEmployee(this.value)" class="btn btn-danger ViewRequest">Delete</button>`
+                            <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
                 }
             }
         ]
@@ -212,6 +211,75 @@ $(document).ready(function () {
 
 });
 
+
+//Datatable and fill table
+$(document).ready(function () {
+    var table = $('#history').DataTable({
+        responsive: true,
+
+        dom: 'Bfrtip',
+        buttons: [
+            { extend: 'copy' },
+            { extend: 'csv' },
+            { extend: 'excel' },
+            { extend: 'pdf', orientation: 'landscape' },
+            { extend: 'print' }
+        ],
+
+        "ajax": {
+            /* url: "/admin/getrequestview/",*/
+            url: "https://localhost:44311/API/TicketRequests/ViewComplete",
+            dataType: "json",
+            dataSrc: ""
+        },
+        "columns": [
+            {
+                "data": "idTicket"
+            },
+            {
+                "data": "title"
+            },
+
+            //"data": "firstName",
+            //render: function (data, type, row) {
+            //    return row.firstName + '&nbsp' + row.lastName;
+
+            /*  $.fn.dataTable.render.moment(to);*/
+
+            {
+                "data": "startDate"
+                /*  , render: $.fn.dataTable.render.moment('M/D/YYYY')*/
+                //render: function(from, to, locale) {
+                //    return to = startDate;
+                //}
+            },
+
+            //    {
+
+            //    "data": "startDate",
+            //    render: function (data, type, row) {
+            //        if (type === "sort" || type === "type") {
+            //            return data;
+            //        }
+            //        return moment(data).format("MM-DD-YYYY HH:mm");
+            //    }
+            //},
+
+            {
+                "data": "updateDate"
+            },
+            {
+                "data": "detail"
+            },
+        ]
+    });
+
+    //Reload table
+    setInterval(function () {
+        table.ajax.reload();
+    }, 30000);
+
+});
 
 function updatestatus(put) {
 
@@ -233,8 +301,9 @@ function updatestatus(put) {
                 obj.message = result.message
                 obj.startDate = result.startDate
                 obj.nik = result.nik
-                obj.updateDate = new Datetime()
+                obj.updateDate = new Date()
                 obj.idStat = 2
+                obj.idpriority = 1
 
 
                 $.ajax({
@@ -256,12 +325,6 @@ function updatestatus(put) {
     })
 
 }
-
-
-
-
-
-
 
 function updatestatus1(put) {
 
@@ -285,6 +348,51 @@ function updatestatus1(put) {
                 obj.nik = result.nik
                 obj.updateDate = new Date()
                 obj.idStat = 3
+                obj.idpriority = 1
+
+                $.ajax({
+                    url: "https://localhost:44311/API/TicketRequests/",
+                    type: "PUT",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    dataType: "json"
+
+                })
+                    .done((hasil) => {
+                        Swal.fire('Saved!', '', 'success')
+                    }).fail((error) => {
+
+                        Swal.fire('Changes are not saved', '', 'info')
+                    });
+            })
+        }
+    })
+
+}
+
+function updatestatus2(put) {
+
+    Swal.fire({
+        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        showCancelButton: true,
+        confirmButtonText: `Iya`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "https://localhost:44311/API/TicketRequests/" + put
+            }).done((result) => {
+
+                var obj = new Object()
+
+                obj.idTicket = result.idTicket
+                obj.title = result.title
+                obj.message = result.message
+                obj.startDate = result.startDate
+                obj.nik = result.nik
+                obj.updateDate = new Date()
+                obj.idStat = 2
+                obj.idpriority = 2
 
                 $.ajax({
                     url: "https://localhost:44311/API/TicketRequests/",
@@ -324,8 +432,6 @@ function updatestatus1(put) {
 //    )
 //}
 //)
-
-
 
 
 

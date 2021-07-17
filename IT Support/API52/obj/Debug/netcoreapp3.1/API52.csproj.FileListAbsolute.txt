@@ -296,7 +296,6 @@ C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\ne
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\bin\Debug\netcoreapp3.1\Nest.dll
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
-C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\bin\Debug\netcoreapp3.1\appsettings.Development.json
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\bin\Debug\netcoreapp3.1\appsettings.json
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\bin\Debug\netcoreapp3.1\API52.exe
@@ -372,3 +371,4 @@ I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\o
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\obj\Debug\netcoreapp3.1\API52.dll
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\obj\Debug\netcoreapp3.1\API52.pdb
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk - Copy\IT Support\API52\obj\Debug\netcoreapp3.1\API52.genruntimeconfig.cache
+C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\API52\obj\Debug\netcoreapp3.1\API52.csproj.AssemblyReference.cache

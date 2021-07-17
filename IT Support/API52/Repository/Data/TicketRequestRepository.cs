@@ -27,6 +27,7 @@ namespace API52.Repository.Data
             request.Title = ticketRequestVM.Title;
             request.Message = ticketRequestVM.Message;
             request.IDStat = 1;
+            request.IDPriority = 1;
             request.StartDate = ticketRequestVM.StartDate;
             request.UpdateDate = ticketRequestVM.UpdateDate;
             request.NIK = ticketRequestVM.NIK;
@@ -40,6 +41,7 @@ namespace API52.Repository.Data
             var request = (from tr in MyContext.TicketRequests
                            join emp in MyContext.Employees on tr.NIK equals emp.NIK
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
+                           join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            select new
                            {
                                tr.IDTicket,
@@ -49,6 +51,28 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               pr.PriorityName,
+                           });
+            return request;
+        }
+
+        public IQueryable ViewComplete()
+        {
+            var request = (from tr in MyContext.TicketRequests
+                           join emp in MyContext.Employees on tr.NIK equals emp.NIK
+                           join st in MyContext.Statuses on tr.IDStat equals st.IDStat
+                           join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
+                           where tr.IDStat == 3
+                           select new
+                           {
+                               tr.IDTicket,
+                               tr.Title,
+                               tr.Message,
+                               st.Detail,
+                               tr.StartDate,
+                               tr.UpdateDate,
+                               emp.NIK,
+                               pr.PriorityName,
                            });
             return request;
         }

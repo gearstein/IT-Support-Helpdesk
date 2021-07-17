@@ -14,6 +14,7 @@ namespace API52.ViewModel
         public DateTime UpdateDate { get; set; }
         public int IDStat { get; set; }
         public string Detail { get; set; }
+        public string PriorityName { get; set; }
         public string NIK { get; set; }
     }
 }

@@ -67,5 +67,22 @@ namespace API52.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        //[Authorize]
+        [HttpGet("ViewComplete")]
+        public ActionResult ViewComplete()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewComplete();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
