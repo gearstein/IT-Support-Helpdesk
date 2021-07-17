@@ -73,6 +73,7 @@ namespace API52.Repository.Data
                             join acc in MyContext.Accounts on emp.NIK equals acc.NIK
                             join acrol in MyContext.AccountRoles on acc.NIK equals acrol.NIK
                             join rol in MyContext.Roles on acrol.IDRole equals rol.IDRole
+                            //where emp.Account == "3"
                             select new
                             {
                                 emp.NIK,

@@ -88,31 +88,44 @@
                 </button>
             </div>
 
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="idticket" class="col-form-label">ID Ticket :</label>
-                    <h3 id="IDTicket"></h3>
+            <form action="/" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="idticket" class="col-form-label">ID Ticket :</label>
+                        <input type="text" class="form-control" id="idticket" aria-describedby="idticket" placeholder="Create title problem">
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-form-label">Title :</label>
+                        <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Create title problem">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="startdate" class="col-form-label">Start Date :</label>
+                        <input type="datetime-local" class="form-control" id="startdate" aria-describedby="startdate" placeholder="Create title problem">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="updatedate" class="col-form-label">Update Date :</label>
+                        <input type="datetime-local" class="form-control" id="updatedate" aria-describedby="updatedate" placeholder="Create title problem">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="detail" class="col-form-label">Detail :</label>
+                        <select id="detail" name="detail" required>
+                            <option value=#>Pilih</option>
+                            <option value=1>Pending</option>
+                            <option value=2>On Going</option>
+                            <option value=3>Complete</option>
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="title" class="col-form-label">Title :</label>
-                    <h3 id="Title"></h3>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
-                <div class="form-group">
-                    <label for="startdate" class="col-form-label">Start Date :</label>
-                    <h3 id="StartDate"></h3>
-                </div>
-                <div class="form-group">
-                    <label for="updatedate" class="col-form-label">Update Date :</label>
-                    <h3 id="UpdateDate"></h3>
-                </div>
-                <div class="form-group">
-                    <label for="detail" class="col-form-label">Detail :</label>
-                    <h3 id="Detail"></h3>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

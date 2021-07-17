@@ -12,6 +12,8 @@ namespace API52.Repository.Data
         public TicketHistoryRepository(MyContext myContext) : base(myContext)
         {
 
+
+
         }
     }
 }

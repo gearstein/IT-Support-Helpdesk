@@ -3,6 +3,7 @@ using Client.Base;
 using Client.Models;
 using Client.Repositories.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,6 +22,16 @@ namespace Client.Controllers
         {
             this.repository = repository;
         }
+
+
+        //[HttpPut("Home/Put")]
+        //public JsonResult Put(Coba entity)
+        //{
+        //    var result = TicketRequestRepository.Put(entity);
+
+        //    HttpContext.Session.SetString("Name", entity.FirstName);
+        //    return Json(result);
+        //}
 
         //[Authorize(Roles = "employee, junior, helpdesk, engineer")]
 
@@ -87,6 +98,8 @@ namespace Client.Controllers
             var result = await repository.GetRequestView();
             return Json(result);
         }
+
+
     }
 }
     
