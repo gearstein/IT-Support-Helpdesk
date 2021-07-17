@@ -23,6 +23,7 @@ namespace API52.Context
         public DbSet<Status> Statuses { get; set; }
         public DbSet<TicketHistory> TicketHistories { get; set; }
         public DbSet<TicketRequest> TicketRequests { get; set; }
+        public DbSet<Priority> Priorities { get; set; }
       
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -72,6 +73,12 @@ namespace API52.Context
                 .HasMany(t => t.TicketRequests)
                 .WithOne(e => e.Employee)
                 .HasForeignKey(bc => bc.NIK);
+
+            //Priority - Ticket Request
+            modelbuilder.Entity<Priority>()
+                .HasMany(t => t.TicketRequests)
+                .WithOne(p => p.Priority)
+                .HasForeignKey(id => id.IDPriority);
 
             //ticket request -> Ticket History <- status
             modelbuilder.Entity<Status>().HasMany(a => a.TicketRequests)

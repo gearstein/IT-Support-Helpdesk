@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -47,6 +48,22 @@ namespace Client.Repositories.Data
             }
 
             return token;
+        }
+
+        public string JwtEmail(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityToken result = tokenHandler.ReadJwtToken(token);
+
+            return result.Claims.FirstOrDefault(claim => claim.Type.Equals("email")).Value;
+        }
+
+        public string JwtRole(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityToken result = tokenHandler.ReadJwtToken(token);
+
+            return result.Claims.FirstOrDefault(claim => claim.Type.Equals("role")).Value;
         }
     }
 }

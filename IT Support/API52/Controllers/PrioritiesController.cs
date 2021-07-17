@@ -14,9 +14,9 @@ namespace API52.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("AllowOrigin")]
-    public class PrioritiesController : BaseController<Priority, PriorityRepository, int>
+    public class StatusController : BaseController<Status, StatusRepository, int>
     {
-        public PrioritiesController(PriorityRepository priorityRepository) : base(priorityRepository)
+        public StatusController(StatusRepository statusRepository) : base(statusRepository)
         {
 
         }

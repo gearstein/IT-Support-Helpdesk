@@ -22,6 +22,7 @@ namespace API52.Models
         public DateTime UpdateDate { get; set; }
         public int IDStat { get; set; }
         public string NIK { get; set; }
+        public int IDPriority { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Status> Statuses{ get; set; }
@@ -29,5 +30,7 @@ namespace API52.Models
         public virtual Chat Chat { get; set; }
         [JsonIgnore]
         public virtual Employee Employee { get; set; }
+        [JsonIgnore]
+        public virtual Priority Priority { get; set; }
     }
 }

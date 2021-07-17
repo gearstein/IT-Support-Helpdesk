@@ -14,6 +14,7 @@ namespace API52.Models
     public class TicketHistory
     {
         [Key]
+        public int IDHistory { get; set; }
         public string Title { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime UpdateDate { get; set; }

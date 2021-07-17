@@ -73,6 +73,7 @@ namespace API52
             services.AddScoped<StatusRepository>();
             services.AddScoped<TicketHistoryRepository>();
             services.AddScoped<TicketRequestRepository>();
+            services.AddScoped<PriorityRepository>();
             //services.AddScoped<ProfillingRepository>();
             //services.AddScoped<EducationRepository>();
             //services.AddScoped<UniversityRepository>();
