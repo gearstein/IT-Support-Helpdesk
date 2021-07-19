@@ -40,53 +40,7 @@ namespace Client.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Auth(LoginVM login)
-        //{
-        //    var jwtoken = await repository.Auth(login);
-        //    if(jwtoken == null)
-        //    {
-        //        return RedirectToAction("index");
-        //    }
-        //    HttpContext.Session.SetString("JWToken", jwtoken.Token);
-        //    return RedirectToAction("dashboard", "admin");
-        //}
 
-        //[HttpPost]
-        //public async Task<IActionResult> Authj(LoginVM login)
-        //{
-        //    var jwtoken = await repository.Auth(login);
-        //    if (jwtoken == null)
-        //    {
-        //        return RedirectToAction("index");
-        //    }
-        //    HttpContext.Session.SetString("JWToken", jwtoken.Token);
-        //    return RedirectToAction("junior", "admin");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Authh(LoginVM login)
-        //{
-        //    var jwtoken = await repository.Auth(login);
-        //    if (jwtoken == null)
-        //    {
-        //        return RedirectToAction("index");
-        //    }
-        //    HttpContext.Session.SetString("JWToken", jwtoken.Token);
-        //    return RedirectToAction("helpdesk", "admin");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Authe(LoginVM login)
-        //{
-        //    var jwtoken = await repository.Auth(login);
-        //    if (jwtoken == null)
-        //    {
-        //        return RedirectToAction("index");
-        //    }
-        //    HttpContext.Session.SetString("JWToken", jwtoken.Token);
-        //    return RedirectToAction("engineer", "admin");
-        //}
         [HttpPost]
         public async Task<IActionResult> Auth(LoginVM login)
         {
@@ -100,19 +54,19 @@ namespace Client.Controllers
             HttpContext.Session.SetString("role", repository.JwtRole(jwtoken.Token));
 
             var role = HttpContext.Session.GetString("role");
-            if (role == "Employee")
+            if (role == "employee")
             {
                 return RedirectToAction("dashboard", "admin");
             }
-            else if (role == "Junior Helpdesk")
+            else if (role == "junior")
             {
                 return RedirectToAction("junior", "admin");
             }
-            else if (role == "Helpdesk")
+            else if (role == "helpdesk")
             {
                 return RedirectToAction("helpdesk", "admin");
             }
-            else if (role == "Engineer")
+            else if (role == "engineer")
             {
                 return RedirectToAction("engineer", "admin");
             }

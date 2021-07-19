@@ -3,6 +3,14 @@
     Layout = "_DashboardLayout";
 }
 
+
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Tabel Tiket</h1>
+
+</div>
+
+
 <!--Botton Request Ticket-->
 <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Add Complaint</button>
 <!--Table To Request Ticket-->
@@ -36,27 +44,27 @@
                         <label class="form-label" for="message"></label>
                     </div>
 
-                    <div class="form-group">
-                        <label for="startdate">Complaint Time</label>
-                        <input type="datetime-local" class="form-control" id="startdate" placeholder="">
-                        <div class="valid-feedback">
-                            Looks good!
+                    @*<div class="form-group">
+                            <label for="startdate">Complaint Time</label>
+                            <input type="datetime-local" class="form-control" id="startdate" placeholder="">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please choose a Date.
+                            </div>
                         </div>
-                        <div class="invalid-feedback">
-                            Please choose a Date.
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="starttime">Update Time</label>
-                        <input type="datetime-local" class="form-control" id="updatedate" placeholder="">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Please choose a time.
-                        </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="updatetime">Update Time</label>
+                            <input type="datetime-local" class="form-control" id="updatedate" placeholder="">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please choose a time.
+                            </div>
+                        </div>*@
 
                     <div class="form-group">
                         <label for="nik">NIK</label>
@@ -70,7 +78,7 @@
                     </div>
                     <div class="form-group">
                     </div>
-                    <button class="btn btn-primary mb-3" type="submit">Register</button>
+                    <button class="btn btn-primary mb-3" type="submit">Create</button>
                 </form>
             </div>
         </div>
@@ -140,6 +148,8 @@
                 <th scope="col">Complaint Time</th>
                 <th scope="col">Update Complaint Time</th>
                 <th scope="col">Status</th>
+                <th scope="col">Priority</th>
+                @*<th scope="col">Aksi</th>*@
             </tr>
         </thead>
         <!--Show isi data table link to ajax js-->

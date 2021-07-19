@@ -564,3 +564,9 @@ I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Deb
 I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\History.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Actual.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\History.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ActualE.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ActualH.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ActualJ.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HistoryE.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HistoryH.cshtml.g.cs
+I:\METRODATA\PROJECT\Tugas\git-hub\IT-Support-Helpdesk\IT Support\Client\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HistoryJ.cshtml.g.cs

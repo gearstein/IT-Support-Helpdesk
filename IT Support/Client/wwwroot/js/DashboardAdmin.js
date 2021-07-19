@@ -132,86 +132,9 @@
 //    })
 //})
 
-////Datatable and fill table
-//$(document).ready(function () {
-//    var table = $('#registerData').DataTable({
-//        responsive: true,
 
-//        dom: 'Bfrtip',
-//        buttons: [
-//            { extend: 'copy' },
-//            { extend: 'csv' },
-//            { extend: 'excel' },
-//            { extend: 'pdf', orientation: 'landscape' },
-//            { extend: 'print' }
-//        ],
 
-//        "ajax": {
-//            /* url: "/admin/getrequestview/",*/
-//            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
-//            dataType: "json",
-//            dataSrc: ""
-
-//        },
-//        "columns": [
-//            {
-//                "data": "idTicket"
-//            },
-//            {
-//                "data": "title"
-//            },
-
-//            //"data": "firstName",
-//            //render: function (data, type, row) {
-//            //    return row.firstName + '&nbsp' + row.lastName;
-
-//            /*  $.fn.dataTable.render.moment(to);*/
-
-//            {
-//                "data": "startDate"
-//                /*  , render: $.fn.dataTable.render.moment('M/D/YYYY')*/
-//                //render: function(from, to, locale) {
-//                //    return to = startDate;
-//                //}
-//            },
-
-//            //    {
-
-//            //    "data": "startDate",
-//            //    render: function (data, type, row) {
-//            //        if (type === "sort" || type === "type") {
-//            //            return data;
-//            //        }
-//            //        return moment(data).format("MM-DD-YYYY HH:mm");
-//            //    }
-//            //},
-
-//            {
-//                "data": "updateDate"
-//            },
-//            {
-//                "data": "detail"
-//            },
-//            {
-//                "data": null,
-//                targets: 'no-sort', orderable: false,
-//                render: function (data, type, row) {
-//                    return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
-//                            <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
-//                            <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
-//                }
-//            }
-//        ]
-//    });
-
-//    //Reload table
-//    setInterval(function () {
-//        table.ajax.reload();
-//    }, 30000);
-
-//});
-
-//Datatable and fill table
+//Datatable and fill table actual
 $(document).ready(function () {
     var table = $('#registerData').DataTable({
         responsive: true,
@@ -226,10 +149,11 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-          url: "/admin/findrequest/",
-            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
+            /* url: "/admin/getrequestview/",*/
+            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
             dataType: "json",
             dataSrc: ""
+
         },
         "columns": [
             {
@@ -238,38 +162,27 @@ $(document).ready(function () {
             {
                 "data": "title"
             },
-
-            //"data": "firstName",
-            //render: function (data, type, row) {
-            //    return row.firstName + '&nbsp' + row.lastName;
-
-            /*  $.fn.dataTable.render.moment(to);*/
-
             {
                 "data": "startDate"
-              /*  , render: $.fn.dataTable.render.moment('M/D/YYYY')*/
-                //render: function(from, to, locale) {
-                //    return to = startDate;
-                //}
             },
-
-        //    {
-
-        //    "data": "startDate",
-        //    render: function (data, type, row) {
-        //        if (type === "sort" || type === "type") {
-        //            return data;
-        //        }
-        //        return moment(data).format("MM-DD-YYYY HH:mm");
-        //    }
-        //},
-
             {
                 "data": "updateDate"
             },
             {
                 "data": "detail"
+            },
+            {
+                "data": "priorityName"
             }
+            //{
+            //    "data": null,
+            //    targets: 'no-sort', orderable: false,
+            //    render: function (data, type, row) {
+            //        return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
+            //                <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
+            //                <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
+            //    }
+            //}
         ]
     });
 
@@ -281,7 +194,7 @@ $(document).ready(function () {
 });
 
 
-//Datatable and fill table
+//Datatable and fill table history
 $(document).ready(function () {
     var table = $('#history').DataTable({
         responsive: true,
@@ -306,34 +219,17 @@ $(document).ready(function () {
                 "data": "idTicket"
             },
             {
+                "data": "idTicket"
+            },
+            {
+                "data": "message"
+            },
+            {
                 "data": "title"
             },
-
-            //"data": "firstName",
-            //render: function (data, type, row) {
-            //    return row.firstName + '&nbsp' + row.lastName;
-
-            /*  $.fn.dataTable.render.moment(to);*/
-
             {
                 "data": "startDate"
-                /*  , render: $.fn.dataTable.render.moment('M/D/YYYY')*/
-                //render: function(from, to, locale) {
-                //    return to = startDate;
-                //}
             },
-
-            //    {
-
-            //    "data": "startDate",
-            //    render: function (data, type, row) {
-            //        if (type === "sort" || type === "type") {
-            //            return data;
-            //        }
-            //        return moment(data).format("MM-DD-YYYY HH:mm");
-            //    }
-            //},
-
             {
                 "data": "updateDate"
             },
@@ -342,26 +238,148 @@ $(document).ready(function () {
             },
         ]
     });
+
     //Reload table
     setInterval(function () {
         table.ajax.reload();
     }, 30000);
+
 });
 
-//$.ajax({
-//    url: "https://localhost:44311/api/ticketrequests/viewrequest"
-//}).done((result) => {
-//    $.each(result, function (key, val) {
+function updatestatus(put) {
 
-//        document.getelementbyid("idticket").value = "val.idticket";
-//        document.getelementbyid("title").value = "val.title";
-//        document.getelementbyid("startdate").value = "val.startdate";
-//        document.getelementbyid("updatedate").value = "val.updatedate";
-//        document.getelementbyid("detail").value = "val.detail";
-//    }
-//    )
-//}
-//)
+    Swal.fire({
+        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        showCancelButton: true,
+        confirmButtonText: `Iya`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "https://localhost:44311/API/TicketRequests/" + put
+            }).done((result) => {
+
+                var obj = new Object()
+
+                obj.idTicket = result.idTicket
+                obj.title = result.title
+                obj.message = result.message
+                obj.startDate = result.startDate
+                obj.nik = result.nik
+                obj.updateDate = new Date()
+                obj.idStat = 2
+                obj.idpriority = 1
+
+
+                $.ajax({
+                    url: "https://localhost:44311/API/TicketRequests/",
+                    type: "PUT",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    dataType: "json"
+
+                })
+                    .done((hasil) => {
+                        Swal.fire('Saved!', '', 'success')
+                    }).fail((error) => {
+
+                        Swal.fire('Changes are not saved', '', 'info')
+                    });
+            })
+        }
+    })
+
+}
+
+function updatestatus1(put) {
+
+    Swal.fire({
+        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        showCancelButton: true,
+        confirmButtonText: `Iya`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "https://localhost:44311/API/TicketRequests/" + put
+            }).done((result) => {
+
+                var obj = new Object()
+
+                obj.idTicket = result.idTicket
+                obj.title = result.title
+                obj.message = result.message
+                obj.startDate = result.startDate
+                obj.nik = result.nik
+                obj.updateDate = new Date()
+                obj.idStat = 3
+                obj.idpriority = 1
+
+                $.ajax({
+                    url: "https://localhost:44311/API/TicketRequests/",
+                    type: "PUT",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    dataType: "json"
+
+                })
+                    .done((hasil) => {
+                        Swal.fire('Saved!', '', 'success')
+                    }).fail((error) => {
+
+                        Swal.fire('Changes are not saved', '', 'info')
+                    });
+            })
+        }
+    })
+
+}
+
+function updatestatus2(put) {
+
+    Swal.fire({
+        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        showCancelButton: true,
+        confirmButtonText: `Iya`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "https://localhost:44311/API/TicketRequests/" + put
+            }).done((result) => {
+
+                var obj = new Object()
+
+                obj.idTicket = result.idTicket
+                obj.title = result.title
+                obj.message = result.message
+                obj.startDate = result.startDate
+                obj.nik = result.nik
+                obj.updateDate = new Date()
+                obj.idStat = 2
+                obj.idpriority = 2
+
+                $.ajax({
+                    url: "https://localhost:44311/API/TicketRequests/",
+                    type: "PUT",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    dataType: "json"
+
+                })
+                    .done((hasil) => {
+                        Swal.fire('Saved!', '', 'success')
+                    }).fail((error) => {
+
+                        Swal.fire('Changes are not saved', '', 'info')
+                    });
+            })
+        }
+    })
+
+}
+
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 window.addEventListener('load', () => {
@@ -380,15 +398,55 @@ window.addEventListener('load', () => {
     }
 });
 
+
+
+
+
+
+//var currentdate = new Date();
+//var datetime = "Last Sync: " + currentdate.getDate() + "/"
+//    + (currentdate.getMonth() + 1) + "/"
+//    + currentdate.getFullYear() + " @ "
+//    + currentdate.getHours() + ":"
+//    + currentdate.getMinutes() + ":"
+//    + currentdate.getSeconds();
+
+//newdate = datetime
+
+
+/*newdate = console.log(dateObj.toISOString().split('T'));*/
+
+
+
+
 //Insert fill table from form registration to db (create data)
 function insert() {
     var obj = new Object(); //sesuaikan sendiri nama objek dan isinya
     // ini ngambil value dari inputan dalam form nya
 
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+    let hour = dateObj.getHours();
+    let minute = dateObj.getMinutes();
+    let second = dateObj.getSeconds();
+
+    newdate = year + "-" + month + "-" + day;
+    /*newdate1 = hour + ":" + minute + ":" + second + "" + "Wib";*/
+
+    //newdate2 = newdate + newdate1;
+
+    /*newdate = year + "-" + month + "-" + day + "/" + hour + "-" + minute + "-" + second;*/
+
+    console.log(newdate)
+
+
     obj.title = $("#title").val();
     obj.message = $("#message").val();
-    obj.startDate = $("#startdate").val();
-    obj.updateDate = $("#updatedate").val();
+    obj.startDate = newdate;
+    obj.updateDate = newdate;
+    /* obj.updateDate = $("#updatedate").val();*/
     obj.nik = $("#nik").val();
 
     console.log(obj);
@@ -410,6 +468,7 @@ function insert() {
             icon: "success"
         });
 
+
     }).fail((error) => {
 
         Swal.fire({
@@ -422,3 +481,84 @@ function insert() {
     })
 }
 
+//For fill chart in dashboard link to id
+
+// Chart Status
+let Pending = countStatus("Pending");
+let OnGoing = countStatus("On Going");
+let Complete = countStatus("Complete");
+
+var optionspie = {
+    chart: {
+        type: 'donut',
+        height: '400px'
+    },
+    dataLabels: {
+        enabled: false
+    },
+    series: [Pending, OnGoing, Complete],
+    labels: ['pending', 'ongoing', 'complete'],
+    noData: {
+        text: 'Loading...'
+    }
+}
+
+var chart = new ApexCharts(document.querySelector("#piechart"), optionspie);
+
+chart.render();
+
+function countStatus(detail) {
+    let count = 0;
+    jQuery.ajax({
+        url: 'https://localhost:44311/api/TicketRequests/ViewChart',
+        success: function (result) {
+            $.each(result, function (key, val) {
+                if (val.detail === detail) {
+                    ++count;
+                }
+            });
+        },
+        async: false
+    });
+    return count;
+}
+
+
+//Chart Priority
+
+let pri1 = countPri("Level 1");
+let pri2 = countPri("Level 2");
+let pri3 = countPri("Level 3");
+
+
+var optionsbar = {
+    chart: {
+        type: 'bar',
+        height: '234px'
+    },
+    series: [{
+        name: 'priority from',
+        data: [pri1, pri2, pri3]
+    }],
+    xaxis: {
+        categories: ["Level 1", "Level 2", "Level 3"]
+    }
+}
+var barChart = new ApexCharts(document.querySelector("#barChart"), optionsbar);
+barChart.render();
+
+function countPri(priorityName) {
+    let count = 0;
+    jQuery.ajax({
+        url: 'https://localhost:44311/api/TicketRequests/ViewChart',
+        success: function (result) {
+            $.each(result, function (key, val) {
+                if (val.priorityName === priorityName) {
+                    ++count;
+                }
+            });
+        },
+        async: false
+    });
+    return count;
+}

@@ -40,30 +40,59 @@ namespace Client.Controllers
             return View();
         }
 
+        // Employee
         public IActionResult Actual()
         {
             return View();
         }
-
         public IActionResult History()
         {
             return View();
         }
 
+        // Junior
+        public IActionResult ActualJ()
+        {
+            return View();
+        }
+        public IActionResult HistoryJ()
+        {
+            return View();
+        }
         public IActionResult Master()
         {
             return View();
         }
 
+        // Helpdesk
+        public IActionResult ActualH()
+        {
+            return View();
+        }
+        public IActionResult HistoryH()
+        {
+            return View();
+        }
         public IActionResult MasterH()
         {
             return View();
         }
 
+        // Engineer
+        public IActionResult ActualE()
+        {
+            return View();
+        }
+
+        public IActionResult HistoryE()
+        {
+            return View();
+        }
         public IActionResult MasterE()
         {
             return View();
         }
+
 
         public IActionResult Chat()
         {

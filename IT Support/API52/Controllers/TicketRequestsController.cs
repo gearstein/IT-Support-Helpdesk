@@ -100,5 +100,21 @@ namespace API52.Controllers
                 return get;
             }
         }
+
+        [HttpGet("ViewChart")]
+        public ActionResult ViewChart()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewChart();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
