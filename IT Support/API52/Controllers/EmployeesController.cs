@@ -76,7 +76,7 @@ namespace API52.Controllers
             }
         }
         //[Authorize]
-        [HttpGet("Find/{nik}")]
+        [HttpGet("FindEmployee/{nik}")]
         public ActionResult FindRegister(string NIK)
         {
             var response = employeerepository.FindRegister(NIK);

@@ -99,7 +99,11 @@ namespace Client.Controllers
             return Json(result);
         }
 
-
+        public async Task<JsonResult> FindRequest(string nik)
+        {
+            var result = await repository.FindRequest(nik);
+            return Json(result);
+        }
     }
 }
     

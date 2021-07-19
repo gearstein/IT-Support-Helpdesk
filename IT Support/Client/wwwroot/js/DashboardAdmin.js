@@ -132,6 +132,85 @@
 //    })
 //})
 
+////Datatable and fill table
+//$(document).ready(function () {
+//    var table = $('#registerData').DataTable({
+//        responsive: true,
+
+//        dom: 'Bfrtip',
+//        buttons: [
+//            { extend: 'copy' },
+//            { extend: 'csv' },
+//            { extend: 'excel' },
+//            { extend: 'pdf', orientation: 'landscape' },
+//            { extend: 'print' }
+//        ],
+
+//        "ajax": {
+//            /* url: "/admin/getrequestview/",*/
+//            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
+//            dataType: "json",
+//            dataSrc: ""
+
+//        },
+//        "columns": [
+//            {
+//                "data": "idTicket"
+//            },
+//            {
+//                "data": "title"
+//            },
+
+//            //"data": "firstName",
+//            //render: function (data, type, row) {
+//            //    return row.firstName + '&nbsp' + row.lastName;
+
+//            /*  $.fn.dataTable.render.moment(to);*/
+
+//            {
+//                "data": "startDate"
+//                /*  , render: $.fn.dataTable.render.moment('M/D/YYYY')*/
+//                //render: function(from, to, locale) {
+//                //    return to = startDate;
+//                //}
+//            },
+
+//            //    {
+
+//            //    "data": "startDate",
+//            //    render: function (data, type, row) {
+//            //        if (type === "sort" || type === "type") {
+//            //            return data;
+//            //        }
+//            //        return moment(data).format("MM-DD-YYYY HH:mm");
+//            //    }
+//            //},
+
+//            {
+//                "data": "updateDate"
+//            },
+//            {
+//                "data": "detail"
+//            },
+//            {
+//                "data": null,
+//                targets: 'no-sort', orderable: false,
+//                render: function (data, type, row) {
+//                    return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
+//                            <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
+//                            <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
+//                }
+//            }
+//        ]
+//    });
+
+//    //Reload table
+//    setInterval(function () {
+//        table.ajax.reload();
+//    }, 30000);
+
+//});
+
 //Datatable and fill table
 $(document).ready(function () {
     var table = $('#registerData').DataTable({
@@ -147,11 +226,10 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-         /* url: "/admin/getrequestview/",*/
-            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
+          url: "/admin/findrequest/",
+            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
             dataType: "json",
             dataSrc: ""
-
         },
         "columns": [
             {
@@ -191,15 +269,6 @@ $(document).ready(function () {
             },
             {
                 "data": "detail"
-            },
-            {
-                "data": null,
-                targets: 'no-sort', orderable: false,
-                render: function (data, type, row) {
-                    return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
-                            <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
-                            <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
-                }
             }
         ]
     });
@@ -273,150 +342,11 @@ $(document).ready(function () {
             },
         ]
     });
-
     //Reload table
     setInterval(function () {
         table.ajax.reload();
     }, 30000);
-
 });
-
-function updatestatus(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 2
-                obj.idpriority = 1
-
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                      type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                .done((hasil) => {
-                    Swal.fire('Saved!', '', 'success')
-                }).fail((error) => {
-
-                    Swal.fire('Changes are not saved', '', 'info')
-                });
-            })
-        }
-    })
-
-}
-
-function updatestatus1(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 3
-                obj.idpriority = 1
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                    type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                    .done((hasil) => {
-                        Swal.fire('Saved!', '', 'success')
-                    }).fail((error) => {
-
-                        Swal.fire('Changes are not saved', '', 'info')
-                    });
-            })
-        }
-    })
-
-}
-
-function updatestatus2(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 2
-                obj.idpriority = 2
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                    type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                    .done((hasil) => {
-                        Swal.fire('Saved!', '', 'success')
-                    }).fail((error) => {
-
-                        Swal.fire('Changes are not saved', '', 'info')
-                    });
-            })
-        }
-    })
-
-}
-
-
-
-
 
 //$.ajax({
 //    url: "https://localhost:44311/api/ticketrequests/viewrequest"
@@ -432,8 +362,6 @@ function updatestatus2(put) {
 //    )
 //}
 //)
-
-
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 window.addEventListener('load', () => {
@@ -481,7 +409,6 @@ function insert() {
             text: "Registration Success!",
             icon: "success"
         });
-
 
     }).fail((error) => {
 

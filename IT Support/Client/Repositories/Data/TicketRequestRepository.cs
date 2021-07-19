@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -31,6 +32,17 @@ namespace Client.Repositories.Data
                 BaseAddress = new Uri(address.link)
             };
         }
+        public async Task<List<AllTicketRequestVM>> FindRequest(string nik)
+        {
+            List<AllTicketRequestVM> entities = new List<AllTicketRequestVM>();
+
+            using (var response = await httpClient.GetAsync(request + "FindRequest/" + nik))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                entities = JsonConvert.DeserializeObject<List<AllTicketRequestVM>>(apiResponse);
+            }
+            return entities;
+        }
 
         public async Task<List<AllTicketRequestVM>> GetRequestView()
         {
@@ -42,6 +54,14 @@ namespace Client.Repositories.Data
                 entities = JsonConvert.DeserializeObject<List<AllTicketRequestVM>>(apiResponse);
             }
             return entities;
+        }
+
+        public string JwtNIK(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityToken result = tokenHandler.ReadJwtToken(token);
+
+            return result.Claims.FirstOrDefault(claim => claim.Type.Equals("nik")).Value;
         }
 
         //public HttpStatusCode Put(Coba entity)

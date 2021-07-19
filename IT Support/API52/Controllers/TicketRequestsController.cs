@@ -84,5 +84,21 @@ namespace API52.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("FindRequest/{nik}")]
+        public ActionResult FindRequest(string NIK)
+        {
+            var response = ticketrequestRepository.FindRequest(NIK);
+            if (NIK == null)
+            {
+                var get = NotFound(new { status = HttpStatusCode.NotFound, result = response, messasge = "Not Found" });
+                return get;
+            }
+            else
+            {
+                var get = Ok(response);
+                return get;
+            }
+        }
     }
 }

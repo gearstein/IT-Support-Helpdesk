@@ -42,6 +42,7 @@ namespace API52.Repository.Data
                            join emp in MyContext.Employees on tr.NIK equals emp.NIK
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
+                           where tr.IDStat == 1 || tr.IDStat == 2
                            select new
                            {
                                tr.IDTicket,
@@ -63,6 +64,27 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where tr.IDStat == 3
+                           select new
+                           {
+                               tr.IDTicket,
+                               tr.Title,
+                               tr.Message,
+                               st.Detail,
+                               tr.StartDate,
+                               tr.UpdateDate,
+                               emp.NIK,
+                               pr.PriorityName,
+                           });
+            return request;
+        }
+
+        public IQueryable FindRequest(string nik)
+        {
+            var request = (from tr in MyContext.TicketRequests
+                           join emp in MyContext.Employees on tr.NIK equals emp.NIK
+                           join st in MyContext.Statuses on tr.IDStat equals st.IDStat
+                           join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
+                           where (tr.IDStat == 1 || tr.IDStat == 2) && tr.NIK == nik
                            select new
                            {
                                tr.IDTicket,

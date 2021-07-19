@@ -44,6 +44,7 @@ namespace API52.Controllers
                     var find = myContext.Roles.Find(role.IDRole);
                     var claims = new[]
                     {
+                    new Claim ("NIK", email.NIK),
                     new Claim("Email", email.Email),
                     new Claim("role", find.RoleName)
                 };
@@ -70,6 +71,7 @@ namespace API52.Controllers
                     var find = myContext.Roles.Find(role.IDRole);
                     var claims = new[]
                     {
+                    new Claim ("NIK", email.NIK),
                     new Claim("Email", email.Email),
                     new Claim("role", find.RoleName)
                 };
