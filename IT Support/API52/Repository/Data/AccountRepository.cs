@@ -135,12 +135,14 @@ namespace API52.Repository.Data
                         where account.NIK == $"{loginVM.NIK}" || employee.Email == $"{loginVM.Email}"
                         select new
                         {
+                            NIK = employee.NIK,
                             Email = employee.Email,
                             RoleName = role.RoleName
                         }).ToList();
             var claims = new List<Claim>();
             foreach (var item in data)
             {
+                claims.Add(new Claim("nik", item.NIK));
                 claims.Add(new Claim("email", item.Email));
                 claims.Add(new Claim("role", item.RoleName));
             }

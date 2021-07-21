@@ -65,5 +65,13 @@ namespace Client.Repositories.Data
 
             return result.Claims.FirstOrDefault(claim => claim.Type.Equals("role")).Value;
         }
+
+        public string JwtNIK(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityToken result = tokenHandler.ReadJwtToken(token);
+
+            return result.Claims.FirstOrDefault(claim => claim.Type.Equals("nik")).Value;
+        }
     }
 }

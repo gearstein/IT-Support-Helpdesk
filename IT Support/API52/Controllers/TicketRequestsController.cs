@@ -116,5 +116,53 @@ namespace API52.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("ViewRequestJunior")]
+        public ActionResult ViewRequestJunior()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewRequestJunior();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("ViewRequestHelpdesk")]
+        public ActionResult ViewRequestHelpdesk()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewRequestHelpdesk();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("ViewRequestEngineer")]
+        public ActionResult ViewRequestEngineer()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewRequestEngineer();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

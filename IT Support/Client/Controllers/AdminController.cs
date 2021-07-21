@@ -1,4 +1,5 @@
 ﻿using API52.Models;
+using API52.ViewModel;
 using Client.Base;
 using Client.Models;
 using Client.Repositories.Data;
@@ -128,10 +129,18 @@ namespace Client.Controllers
             return Json(result);
         }
 
-        public async Task<JsonResult> FindRequest(string nik)
+        public async Task<JsonResult> FindRequest()
         {
+            //var jwtnik = repository.JwtNIK();
+            var nik = HttpContext.Session.GetString("NIK");
             var result = await repository.FindRequest(nik);
             return Json(result);
+        }
+
+        public async Task<string> showToken()
+        {
+            var token = await repository.getJWT();
+            return token;
         }
     }
 }

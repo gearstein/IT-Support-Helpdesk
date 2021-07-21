@@ -270,7 +270,7 @@ $(document).ready(function () {
 
         "ajax": {
             /* url: "/admin/getrequestview/",*/
-            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
+            url: "https://localhost:44311/API/TicketRequests/ViewRequestHelpdesk",
             dataType: "json",
             dataSrc: ""
 
@@ -286,10 +286,22 @@ $(document).ready(function () {
                 "data": "message"
             },
             {
-                "data": "startDate"
+                "data": "startDate",
+
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
-                "data": "updateDate"
+                "data": "updateDate",
+
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
                 "data": "detail"
@@ -303,8 +315,6 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     return `<button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})">Complete</button>
                             <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
-
-                    /*<button class="btn btn-warning" onclick = "updatestatus(${row['idTicket']})">Update</button>*/
                 }
             }
         ]
@@ -338,7 +348,7 @@ function updatestatus(put) {
                 obj.message = result.message
                 obj.startDate = result.startDate
                 obj.nik = result.nik
-                obj.updateDate = new Date()
+                obj.updateDate = new Date().toLocaleString();
                 obj.idStat = 2
                 obj.idpriority = 1
 
@@ -368,9 +378,9 @@ function updatestatus(put) {
 function updatestatus1(put) {
 
     Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        title: 'Do you want to change the status to Complete ?',
         showCancelButton: true,
-        confirmButtonText: `Iya`
+        confirmButtonText: `Yes`
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
@@ -386,7 +396,7 @@ function updatestatus1(put) {
                 obj.startDate = result.startDate
                 obj.nik = result.nik
                 obj.idpriority = result.idpriority
-                obj.updateDate = new Date()
+                obj.updateDate = new Date().toLocaleString();
                 obj.idStat = 3
 
                 $.ajax({
@@ -413,9 +423,9 @@ function updatestatus1(put) {
 function updatestatus2(put) {
 
     Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
+        title: 'Do you want to send a report ticket to level 3',
         showCancelButton: true,
-        confirmButtonText: `Iya`
+        confirmButtonText: `Yes`
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
@@ -431,7 +441,7 @@ function updatestatus2(put) {
                 obj.startDate = result.startDate
                 obj.nik = result.nik
                 obj.idStat = result.idStat
-                obj.updateDate = new Date()
+                obj.updateDate = new Date().toLocaleString();
                 obj.idpriority = 3
 
                 $.ajax({
@@ -489,10 +499,20 @@ $(document).ready(function () {
                 "data": "title"
             },
             {
-                "data": "startDate"
+                "data": "startDate",
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
-                "data": "updateDate"
+                "data": "updateDate",
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
                 "data": "detail"

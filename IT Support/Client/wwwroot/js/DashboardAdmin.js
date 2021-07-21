@@ -132,8 +132,6 @@
 //    })
 //})
 
-
-
 //Datatable and fill table actual
 $(document).ready(function () {
     var table = $('#registerData').DataTable({
@@ -149,10 +147,10 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-            /* url: "/admin/getrequestview/",*/
-            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
+             url: "/admin/findrequest/",
+            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
             dataType: "json",
-            dataSrc: ""
+            dataSrc: "",
 
         },
         "columns": [
@@ -163,10 +161,36 @@ $(document).ready(function () {
                 "data": "title"
             },
             {
-                "data": "startDate"
+                "data": "startDate",
+
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
+
             },
+            //{
+            //    "data": "startDate",
+            //    render: function (data, type, row) {
+            //        date = new Date(data);
+            //        return date;
+
+            //    }
+            //},
+            //{
+            //    "data": "updateDate"
+            //    // render: function (data, type, row) {
+            //    //    return data.split("T")[0];
+            //    //}
+            //},
             {
-                "data": "updateDate"
+                "data": "updateDate",
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
                 "data": "detail"
@@ -219,7 +243,7 @@ $(document).ready(function () {
                 "data": "idTicket"
             },
             {
-                "data": "idTicket"
+                "data": "nik"
             },
             {
                 "data": "message"
@@ -228,10 +252,22 @@ $(document).ready(function () {
                 "data": "title"
             },
             {
-                "data": "startDate"
+                "data": "startDate",
+
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
+
             },
             {
-                "data": "updateDate"
+                "data": "updateDate",
+                render: function (data, type, row) {
+                    date = new Date(data);
+                    return date.toLocaleString();
+
+                }
             },
             {
                 "data": "detail"
@@ -400,9 +436,6 @@ window.addEventListener('load', () => {
 
 
 
-
-
-
 //var currentdate = new Date();
 //var datetime = "Last Sync: " + currentdate.getDate() + "/"
 //    + (currentdate.getMonth() + 1) + "/"
@@ -425,31 +458,16 @@ function insert() {
     // ini ngambil value dari inputan dalam form nya
 
     let dateObj = new Date();
-    let month = dateObj.getUTCMonth() + 1; //months from 1-12
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-    let hour = dateObj.getHours();
-    let minute = dateObj.getMinutes();
-    let second = dateObj.getSeconds();
 
-    newdate = year + "-" + month + "-" + day;
-    /*newdate1 = hour + ":" + minute + ":" + second + "" + "Wib";*/
-
-    //newdate2 = newdate + newdate1;
-
-    /*newdate = year + "-" + month + "-" + day + "/" + hour + "-" + minute + "-" + second;*/
-
-    console.log(newdate)
-
+    console.log(dateObj)
 
     obj.title = $("#title").val();
     obj.message = $("#message").val();
-    obj.startDate = newdate;
-    obj.updateDate = newdate;
+    obj.startDate = $("#startdate").val();
+    obj.updateDate = dateObj;
     /* obj.updateDate = $("#updatedate").val();*/
     obj.nik = $("#nik").val();
 
-    console.log(obj);
 
     // isi dari object kalian buat sesuai dengan bentuk object yang akan di post (insert)
     $.ajax({

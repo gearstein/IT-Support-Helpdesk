@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,7 @@ namespace Client.Repositories.Data
             {
                 BaseAddress = new Uri(address.link)
             };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", _contextAccessor.HttpContext.Session.GetString("JWToken"));
         }
         public async Task<List<AllTicketRequestVM>> FindRequest(string nik)
         {
@@ -56,12 +58,16 @@ namespace Client.Repositories.Data
             return entities;
         }
 
-        public string JwtNIK(string token)
+        public async Task<string> getJWT()
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            JwtSecurityToken result = tokenHandler.ReadJwtToken(token);
+            //var content = new JWTokenVM();
+            var token = _contextAccessor.HttpContext.Session.GetString("JWToken");
+            //var result = new JwtSecurityTokenHandler().ReadJwtToken(token);
 
-            return result.Claims.FirstOrDefault(claim => claim.Type.Equals("nik")).Value;
+            //content.Token = result.Claims.First(claim => claim.Type == "nik").Value;
+
+            var result = token;
+            return token;
         }
 
         //public HttpStatusCode Put(Coba entity)
