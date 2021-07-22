@@ -43,6 +43,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where tr.IDStat == 1 || tr.IDStat == 2
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -52,6 +53,10 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
+                               emp.PhoneNumber,
+                               emp.FirstName,
+                               emp.LastName,
                                pr.PriorityName,
                            });
             return request;
@@ -64,6 +69,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where (tr.IDStat == 1 || tr.IDStat == 2) && tr.IDPriority == 1
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -73,6 +79,10 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
+                               emp.PhoneNumber,
+                               emp.FirstName,
+                               emp.LastName,
                                pr.PriorityName,
                            });
             return request;
@@ -85,6 +95,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where (tr.IDStat == 1 || tr.IDStat == 2) && tr.IDPriority == 2
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -94,6 +105,10 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
+                               emp.PhoneNumber,
+                               emp.FirstName,
+                               emp.LastName,
                                pr.PriorityName,
                            });
             return request;
@@ -106,6 +121,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where (tr.IDStat == 1 || tr.IDStat == 2) && tr.IDPriority == 3
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -115,6 +131,10 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
+                               emp.PhoneNumber,
+                               emp.FirstName,
+                               emp.LastName,
                                pr.PriorityName,
                            });
             return request;
@@ -127,6 +147,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where tr.IDStat == 3
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -136,6 +157,10 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
+                               emp.PhoneNumber,
+                               emp.FirstName,
+                               emp.LastName,
                                pr.PriorityName,
                            });
             return request;
@@ -148,6 +173,7 @@ namespace API52.Repository.Data
                            join st in MyContext.Statuses on tr.IDStat equals st.IDStat
                            join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
                            where (tr.IDStat == 1 || tr.IDStat == 2) && tr.NIK == nik
+                           orderby tr.IDTicket descending
                            select new
                            {
                                tr.IDTicket,
@@ -157,6 +183,7 @@ namespace API52.Repository.Data
                                tr.StartDate,
                                tr.UpdateDate,
                                emp.NIK,
+                               emp.Email,
                                pr.PriorityName,
                            });
             return request;

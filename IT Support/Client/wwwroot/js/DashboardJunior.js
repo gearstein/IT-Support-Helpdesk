@@ -20,12 +20,12 @@ $(document).ready(function () {
             {
                 "data": "email"
             },
-            {
-                "data": "phoneNumber",
-                render: function (data, type, row) {
-                    return "+62" + data.slice(1);
-                }
-            },
+            //{
+            //    "data": "phoneNumber",
+            //    render: function (data, type, row) {
+            //        return "+62" + data.slice(1);
+            //    }
+            //},
             {
                 "data": "roleName"
             }
@@ -66,7 +66,22 @@ $(document).ready(function () {
         },
         "columns": [
             {
-                "data": "idTicket"
+                "data": null,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            {
+                "data": "idTicket",
+                render: function (data, type, row) {
+                    return "TR" + data + "MCC";
+                }
+            },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    return row["firstName"] + " " + row["lastName"];
+                }
             },
             {
                 "data": "title"
@@ -90,6 +105,15 @@ $(document).ready(function () {
                     date = new Date(data);
                     return date.toLocaleString();
 
+                }
+            },
+            {
+                "data": "email"
+            },
+            {
+                "data": "phoneNumber",
+                render: function (data, type, row) {
+                    return "+62" + data.slice(1);
                 }
             },
             {

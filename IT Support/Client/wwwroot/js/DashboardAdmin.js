@@ -15,8 +15,8 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-            /* url: "/admin/getrequestview/",*/
-            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
+             url: "/admin/findrequest/",
+            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
             dataType: "json",
             dataSrc: ""
         },
@@ -28,7 +28,10 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "idTicket"
+                "data": "idTicket",
+                render: function (data, type, row) {
+                    return "TR" + data + "MCC";
+                }
             },
             {
                 "data": "title"
