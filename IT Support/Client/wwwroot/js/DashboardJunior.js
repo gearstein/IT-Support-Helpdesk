@@ -121,25 +121,6 @@ $(document).ready(function () {
 
 
 
-//function UpdateStatus(IdTicket, updateDate) {
-//    $.ajax({
-//        url: "https://localhost:44374/Task/UpdateStatus",
-//        dataType: "json",
-//        dataSrc: "",
-//        data: {
-//            TaskId: IdTicket,
-//            Status: updateDate
-//        }
-//    }).done(result => {
-//        alert("sukses");
-//    }).fail(error => {
-//        alert("Gagal");
-//    })
-//}
-
-
-
-
 function updatestatus(put) {
 
     Swal.fire({
@@ -155,25 +136,6 @@ function updatestatus(put) {
 
                 var obj = new Object()
 
-                /*var today = new Date();*/
-                /* updt = today.setHours(today.getHours() + 7);*/
-
-                //const myDate = new Date();
-                //const newDate = new Date(myDate);
-                //newd =  newDate.setHours(newDate.getHours() + 1);
-                //console.log(newd);
-
-                //{
-                //    "data": "startDate",
-
-                //        render: function (data, type, row) {
-                //            date = new Date(data);
-                //            return date.toLocaleString();
-
-                //        }
-
-                //},
-
                 obj.idTicket = result.idTicket
                 obj.title = result.title
                 obj.message = result.message
@@ -182,9 +144,6 @@ function updatestatus(put) {
                 obj.updateDate = new Date().toLocaleString();
                 obj.idStat = 2
                 obj.idpriority = 1
-
-                //updt = obj.updateDate = new Date().toLocaleString();
-                //console.log(updt)
 
                 $.ajax({
                     url: "https://localhost:44311/API/TicketRequests/",
@@ -375,52 +334,8 @@ window.addEventListener('load', () => {
     }
 });
 
-//Insert fill table from form registration to db (create data)
-function insert() {
-    var obj = new Object(); //sesuaikan sendiri nama objek dan isinya
-    // ini ngambil value dari inputan dalam form nya
-
-    obj.title = $("#title").val();
-    obj.message = $("#message").val();
-    obj.startDate = $("#startdate").val();
-    obj.updateDate = $("#updatedate").val();
-    obj.nik = $("#nik").val();
-
-    console.log(obj);
-
-    // isi dari object kalian buat sesuai dengan bentuk object yang akan di post (insert)
-    $.ajax({
-        url: "https://localhost:44311/API/TicketRequests/Request",
-        type: "POST",
-        data: JSON.stringify(obj),
-        contentType: "application/json",
-        dataType: "json"
-    }).done((result) => {
-
-        /* $("#reload").ajax.reload(null, false);*/
-
-        Swal.fire({
-            title: "Good job!",
-            text: "Registration Success!",
-            icon: "success"
-        });
-
-
-    }).fail((error) => {
-
-        Swal.fire({
-            title: "Failed!",
-            text: `${error.responseJSON.message}`,
-            icon: "Warning"
-        });
-
-        //alert pemberitahuan jika gagal
-    })
-}
-
 
 //For fill chart in dashboard link to id
-
 // Chart Status
 let Pending = countStatus("Pending");
 let OnGoing = countStatus("On Going");

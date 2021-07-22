@@ -1,139 +1,7 @@
-﻿//Data Tabel Master
-//$(document).ready(function () {
-//    $('#masterdata').datatable({
-//        dom: 'bfrtip',
-//        buttons: [
-//            'copy', 'csv', 'excel', 'pdf', 'print'
-//        ],
-//        "ajax": {
-//            url: "/employee/getregistrasiview/",
-//            datasrc: ""
-//        },
-//        "columns": [
-//            {
-//                /*"data": "firstname"*/
-//                "data": null,
-//                "render": function (data, type, row) {
-//                    return row["firstname"] + " " + row["lastname"];
-//                }
-//            },
-//            {
-//                "data": "email"
-//            },
-//            {
-//                "data": "phonenumber",
-//                render: function (data, type, row) {
-//                    return "+62" + data.slice(1);
-//                }
-//            },
-//            {
-//                "data": "rolename"
-//            }
-//        ],
-//        buttons: {
-//            buttons: [
-//                { extend: 'copy', classname: 'btn btn-primary' },
-//                { extend: 'csv', classname: 'btn btn-primary' },
-//                { extend: 'excel', classname: 'btn btn-primary' },
-//                { extend: 'pdf', classname: 'btn btn-primary', orientation: 'landscape' },
-//                { extend: 'print', classname: 'btn btn-primary' },
-//            ]
-//        }
-//    })
-//})
-
-////Data Tabel Ticket
-//$(document).ready(function () {
-//    $('#registerData').DataTable({
-//        dom: 'Bfrtip',
-//        buttons: [
-//            'copy', 'csv', 'excel', 'pdf', 'print'
-//        ],
-//        "ajax": {
-//            url: "/admin/getrequestview/",
-//            dataSrc: ""
-//        },
-//        "columns": [
-//            {
-//                "data": "title"
-//            },
-//            {
-//                "data": "startDate"
-//            },
-//            {
-//                "data": "updateDate"
-//            },
-//            {
-//                "data": "idTicket"
-//            },
-//            {
-//                "data": "detail"
-//            },
-//            {
-//                "data": null,
-//                targets: 'no-sort', orderable: false,
-//                render: function (data, type, row) {
-//                    return `<button value="" class="btn btn-info" data-toggle="modal" data-target="#getrequest">Detail</button>
-//                            <button value="" onclick="delEmployee(this.value)" class="btn btn-danger ViewRequest">Delete</button>`
-//                }
-//            }
-//        ],
-//        buttons: {
-//            buttons: [
-//                { extend: 'copy', className: 'btn btn-primary' },
-//                { extend: 'csv', className: 'btn btn-primary' },
-//                { extend: 'excel', className: 'btn btn-primary' },
-//                { extend: 'pdf', className: 'btn btn-primary', orientation: 'landscape' },
-//                { extend: 'print', className: 'btn btn-primary' },
-//            ]
-//        }
-//    })
-//    $(".ViewRequest").click(function () {
-//        $.ajax({
-//            url: $(this).data("url")
-//        }).done((result) => {
-//            //title
-//            title = result.title;
-//            $("#Title").text(title);
-//            //detail
-//            detail = result.detail;
-//            $("#Detail").text(detail);
-//        }).fail((error) => {
-//            console.log(error);
-//        });
-//    })
-//})
-
-////Submit Ticket
-//$("#saved").click(function () {
-//    $("#saved").submit(function (e) {
-//        e.preventDefault;
-//    })
-//    /*console.log("Input Berhasil");*/
-//    var obj = new Object(); //sesuaikan sendiri nama objectnya dan beserta isinya
-//    //ini ngambil value dari tiap inputan di form nya
-//    obj.title = $("#title").val();
-//    obj.message = $("#message").val();
-//    obj.startDate = $("#startdate").val();
-//    obj.updateDate = $("#updatedate").val();
-//    obj.nik = $("#nik").val();
-//    /*console.log(obj);*/
-//    //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
-//    $.ajax({
-//        url: "https://localhost:44311/API/TicketRequests/Request",
-//        type: "POST",
-//        data: JSON.stringify(obj),
-//        contentType: "application/json",
-//        dataType: "json"
-//    }).done((result) => {
-//        alert("Data Telah Sukses Dimasukkan");
-//    }).fail((error) => {
-//        console.log(error);
-//    })
-//})
-
+﻿
 //Datatable and fill table actual
 $(document).ready(function () {
+    var no = 1;
     var table = $('#registerData').DataTable({
         responsive: true,
 
@@ -147,13 +15,18 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-             url: "/admin/findrequest/",
-            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
+            /* url: "/admin/getrequestview/",*/
+            url: "https://localhost:44311/API/TicketRequests/ViewRequest",
             dataType: "json",
-            dataSrc: "",
-
+            dataSrc: ""
         },
         "columns": [
+            {
+                "data": null,
+                    render: function(data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
             {
                 "data": "idTicket"
             },
@@ -166,30 +39,13 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
-
                 }
-
             },
-            //{
-            //    "data": "startDate",
-            //    render: function (data, type, row) {
-            //        date = new Date(data);
-            //        return date;
-
-            //    }
-            //},
-            //{
-            //    "data": "updateDate"
-            //    // render: function (data, type, row) {
-            //    //    return data.split("T")[0];
-            //    //}
-            //},
             {
                 "data": "updateDate",
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
-
                 }
             },
             {
@@ -198,15 +54,6 @@ $(document).ready(function () {
             {
                 "data": "priorityName"
             }
-            //{
-            //    "data": null,
-            //    targets: 'no-sort', orderable: false,
-            //    render: function (data, type, row) {
-            //        return `<button class="btn btn-warning" onclick="updatestatus(${row['idTicket']})" >Update</button>
-            //                <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
-            //                <button class="btn btn-info" onclick="updatestatus2(${row['idTicket']})" >Pass</button>`
-            //    }
-            //}
         ]
     });
 
@@ -216,6 +63,73 @@ $(document).ready(function () {
     }, 30000);
 
 });
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+window.addEventListener('load', () => {
+    var forms = document.getElementsByClassName('needs-validation');
+    for (let form of forms) {
+        form.addEventListener('submit', (evt) => {
+            if (!form.checkValidity()) {
+                evt.preventDefault();
+                evt.stopPropagation();
+            } else {
+                evt.preventDefault();
+                insert();
+            }
+            form.classList.add('was-validated');
+        });
+    }
+});
+
+//Insert fill table from form registration to db (create data)
+function insert() {
+
+    var obj = new Object(); //sesuaikan sendiri nama objek dan isinya
+    // ini ngambil value dari inputan dalam form nya
+
+    let dateObj = new Date().toLocaleString();
+    console.log(dateObj)
+   
+    obj.title = $("#title").val();
+    obj.message = $("#message").val();
+    obj.startDate = dateObj;
+    obj.updateDate = dateObj;
+    /* obj.updateDate = $("#updatedate").val();*/
+    obj.nik = $("#nik").val();
+
+
+    // isi dari object kalian buat sesuai dengan bentuk object yang akan di post (insert)
+    $.ajax({
+        url: "https://localhost:44311/API/TicketRequests/Request",
+        type: "POST",
+        data: JSON.stringify(obj),
+        contentType: "application/json",
+        dataType: "json"
+    }).done((result) => {
+
+
+        Swal.fire({
+            title: "Good job!",
+            text: "Registration Success!",
+            icon: "success"
+        });
+
+
+    }).fail((error) => {
+
+        Swal.fire({
+            title: "Failed!",
+            text: `${error.responseJSON.message}`,
+            icon: "Warning"
+        });
+
+        //alert pemberitahuan jika gagal
+    })
+}
+
+
+
+
 
 
 //Datatable and fill table history
@@ -243,7 +157,7 @@ $(document).ready(function () {
                 "data": "idTicket"
             },
             {
-                "data": "nik"
+                "data": "idTicket"
             },
             {
                 "data": "message"
@@ -253,13 +167,11 @@ $(document).ready(function () {
             },
             {
                 "data": "startDate",
-
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
 
                 }
-
             },
             {
                 "data": "updateDate",
@@ -417,87 +329,6 @@ function updatestatus2(put) {
 
 
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-window.addEventListener('load', () => {
-    var forms = document.getElementsByClassName('needs-validation');
-    for (let form of forms) {
-        form.addEventListener('submit', (evt) => {
-            if (!form.checkValidity()) {
-                evt.preventDefault();
-                evt.stopPropagation();
-            } else {
-                evt.preventDefault();
-                insert();
-            }
-            form.classList.add('was-validated');
-        });
-    }
-});
-
-
-
-//var currentdate = new Date();
-//var datetime = "Last Sync: " + currentdate.getDate() + "/"
-//    + (currentdate.getMonth() + 1) + "/"
-//    + currentdate.getFullYear() + " @ "
-//    + currentdate.getHours() + ":"
-//    + currentdate.getMinutes() + ":"
-//    + currentdate.getSeconds();
-
-//newdate = datetime
-
-
-/*newdate = console.log(dateObj.toISOString().split('T'));*/
-
-
-
-
-//Insert fill table from form registration to db (create data)
-function insert() {
-    var obj = new Object(); //sesuaikan sendiri nama objek dan isinya
-    // ini ngambil value dari inputan dalam form nya
-
-    let dateObj = new Date();
-
-    console.log(dateObj)
-
-    obj.title = $("#title").val();
-    obj.message = $("#message").val();
-    obj.startDate = $("#startdate").val();
-    obj.updateDate = dateObj;
-    /* obj.updateDate = $("#updatedate").val();*/
-    obj.nik = $("#nik").val();
-
-
-    // isi dari object kalian buat sesuai dengan bentuk object yang akan di post (insert)
-    $.ajax({
-        url: "https://localhost:44311/API/TicketRequests/Request",
-        type: "POST",
-        data: JSON.stringify(obj),
-        contentType: "application/json",
-        dataType: "json"
-    }).done((result) => {
-
-        /* $("#reload").ajax.reload(null, false);*/
-
-        Swal.fire({
-            title: "Good job!",
-            text: "Registration Success!",
-            icon: "success"
-        });
-
-
-    }).fail((error) => {
-
-        Swal.fire({
-            title: "Failed!",
-            text: `${error.responseJSON.message}`,
-            icon: "Warning"
-        });
-
-        //alert pemberitahuan jika gagal
-    })
-}
 
 //For fill chart in dashboard link to id
 

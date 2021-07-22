@@ -44,7 +44,7 @@
                         <label class="form-label" for="message"></label>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label for="startdate">complaint time</label>
                         <input type="datetime-local" class="form-control" id="startdate" placeholder="">
                         <div class="valid-feedback">
@@ -53,7 +53,7 @@
                         <div class="invalid-feedback">
                             please choose a date.
                         </div>
-                    </div>
+                    </div>*@
 
                     @*<div class="form-group">
                             <label for="updatetime">Update Time</label>
@@ -76,6 +76,7 @@
                             Please choose a nik.
                         </div>
                     </div>
+
                     <div class="form-group">
                     </div>
                     <button class="btn btn-primary mb-3" type="submit">Create</button>
@@ -143,12 +144,12 @@
     <table class="table table-striped table-hover" id="registerData">
         <thead>
             <tr>
+
+                <th scope="col">No</th>
                 <th scope="col">Id Ticket</th>
                 <th scope="col">Title</th>
                 <th scope="col">Complaint Date</th>
-                @*<th scope="col">Complaint Time</th>*@
                 <th scope="col">Update Complaint Date</th>
-                @*<th scope="col">Update Complaint Time</th>*@
                 <th scope="col">Status</th>
                 <th scope="col">Priority</th>
                 @*<th scope="col">Aksi</th>*@
