@@ -77,28 +77,40 @@ window.addEventListener('load', () => {
                 evt.stopPropagation();
             } else {
                 evt.preventDefault();
-                insert();
+                jwt();
             }
             form.classList.add('was-validated');
         });
     }
 });
 
+function jwt() {
+    $.ajax({
+        url: "/admin/findrequest/",
+        type: "GET",
+        contentType: "application/json",
+        dataType: "json"
+    }).done((result) => {
+        insert(result[0].nik)
+    }).fail((error) => {
+
+    })
+}
 //Insert fill table from form registration to db (create data)
-function insert() {
+function insert(nik) {
 
     var obj = new Object(); //sesuaikan sendiri nama objek dan isinya
     // ini ngambil value dari inputan dalam form nya
 
     let dateObj = new Date().toLocaleString();
-    console.log(dateObj)
-   
+    /*console.log(dateObj)*/
+
     obj.title = $("#title").val();
     obj.message = $("#message").val();
     obj.startDate = dateObj;
     obj.updateDate = dateObj;
     /* obj.updateDate = $("#updatedate").val();*/
-    obj.nik = $("#nik").val();
+    obj.nik = nik;
 
 
     // isi dari object kalian buat sesuai dengan bentuk object yang akan di post (insert)
@@ -110,6 +122,7 @@ function insert() {
         dataType: "json"
     }).done((result) => {
 
+        /*$(".bd-example-modal-lg").modal('hide')*/
 
         Swal.fire({
             title: "Good job!",
@@ -117,6 +130,7 @@ function insert() {
             icon: "success"
         });
 
+        $("#registerData").DataTable().ajax.reload();
 
     }).fail((error) => {
 
