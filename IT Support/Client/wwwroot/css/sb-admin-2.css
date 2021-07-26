@@ -1825,6 +1825,11 @@ pre code {
   border: 0;
 }
 
+table.DataTable tbody{
+    word-break: break-word;
+    text-align: justify;
+}
+
 .form-control {
   display: block;
   width: 100%;

@@ -25,21 +25,6 @@ namespace Client.Controllers
             return View();
         }
 
-        //public IActionResult j()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult h()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult e()
-        //{
-        //    return View();
-        //}
-
 
         [HttpPost]
         public async Task<IActionResult> Auth(LoginVM login)
@@ -55,19 +40,19 @@ namespace Client.Controllers
             HttpContext.Session.SetString("NIK", repository.JwtNIK(jwtoken.Token));
 
             var role = HttpContext.Session.GetString("role");
-            if (role == "Employee")
+            if (role == "employee")
             {
                 return RedirectToAction("dashboard", "admin");
             }
-            else if (role == "Junior Helpdesk")
+            else if (role == "junior")
             {
                 return RedirectToAction("junior", "admin");
             }
-            else if (role == "Helpdesk")
+            else if (role == "helpdesk")
             {
                 return RedirectToAction("helpdesk", "admin");
             }
-            else if (role == "Engineer")
+            else if (role == "engineer")
             {
                 return RedirectToAction("engineer", "admin");
             }

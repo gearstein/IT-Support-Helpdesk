@@ -1,9 +1,36 @@
-﻿//Data Tabel Master
+﻿////Data Tabel Master
 $(document).ready(function () {
     $('#masterData').DataTable({
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa fa-copy"></i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fa fa-file-text"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                autoPrint: false
+            }
         ],
         "ajax": {
             url: "/employee/getregistrasiview/",
@@ -11,7 +38,12 @@ $(document).ready(function () {
         },
         "columns": [
             {
-                /*"data": "firstName"*/
+                "data": null,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            {
                 "data": null,
                 "render": function (data, type, row) {
                     return row["firstName"] + " " + row["lastName"];
@@ -29,33 +61,45 @@ $(document).ready(function () {
             {
                 "data": "roleName"
             }
-        ],
-        buttons: {
-            buttons: [
-                { extend: 'copy', className: 'btn btn-primary' },
-                { extend: 'csv', className: 'btn btn-primary' },
-                { extend: 'excel', className: 'btn btn-primary' },
-                { extend: 'pdf', className: 'btn btn-primary', orientation: 'landscape' },
-                { extend: 'print', className: 'btn btn-primary' },
-            ]
-        }
+        ]
     })
 })
-
-
 
 //Datatable and fill table
 $(document).ready(function () {
     var table = $('#registerData').DataTable({
         responsive: true,
-
+        bAutoWidth: true,
         dom: 'Bfrtip',
         buttons: [
-            { extend: 'copy' },
-            { extend: 'csv' },
-            { extend: 'excel' },
-            { extend: 'pdf', orientation: 'landscape' },
-            { extend: 'print' }
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa fa-copy"></i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fa fa-file-text"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                autoPrint: false
+            }
         ],
 
         "ajax": {
@@ -78,18 +122,14 @@ $(document).ready(function () {
                     return "TR" + data + "MCC";
                 }
             },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return row["firstName"] + " " + row["lastName"];
-                }
-            },
+
             {
                 "data": "title"
             },
             {
-                "data": "message"
+                "data": "email"
             },
+
             {
                 "data": "startDate",
 
@@ -109,7 +149,16 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "email"
+                "data": "detail"
+            },
+            {
+                "data": null,
+                targets: 'no-sort', orderable: false,
+                render: function (data, type, row) {
+                    return `
+                            <button class="btn btn-success mb-2" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button> 
+                           `
+                }
             },
             {
                 "data": "phoneNumber",
@@ -117,19 +166,18 @@ $(document).ready(function () {
                     return "+62" + data.slice(1);
                 }
             },
-            {
-                "data": "detail"
-            },
-            {
-                "data": "priorityName"
-            },
+
             {
                 "data": null,
-                targets: 'no-sort', orderable: false,
-                render: function (data, type, row) {
-                    return `
-                            <button class="btn btn-success" onclick="updatestatus1(${row['idTicket']})" >Complete</button>
-                           `
+                "render": function (data, type, row) {
+                    return row["firstName"] + " " + row["lastName"];
+                }
+            },
+            {
+                "data": "message",
+                className: "text-justify",
+                "render": function (data, type, row) {
+                    return '<br>' + data;
                 }
             }
         ]
@@ -141,8 +189,6 @@ $(document).ready(function () {
     }, 30000);
 
 });
-
-
 
 // Change status to complete
 
@@ -200,11 +246,34 @@ $(document).ready(function () {
 
         dom: 'Bfrtip',
         buttons: [
-            { extend: 'copy' },
-            { extend: 'csv' },
-            { extend: 'excel' },
-            { extend: 'pdf', orientation: 'landscape' },
-            { extend: 'print' }
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa fa-copy"></i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fa fa-file-text"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                autoPrint: false
+            }
         ],
 
         "ajax": {
@@ -215,7 +284,10 @@ $(document).ready(function () {
         },
         "columns": [
             {
-                "data": "idTicket"
+                "data": null,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
             },
             {
                 "data": "idTicket"
@@ -254,6 +326,7 @@ $(document).ready(function () {
     }, 30000);
 
 });
+
 
 
 

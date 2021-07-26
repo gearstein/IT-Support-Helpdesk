@@ -7,11 +7,32 @@ $(document).ready(function () {
 
         dom: 'Bfrtip',
         buttons: [
-            { extend: 'copy' },
-            { extend: 'csv' },
-            { extend: 'excel' },
-            { extend: 'pdf', orientation: 'landscape' },
-            { extend: 'print' }
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa fa-copy"></i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fa fa-file-text"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                autoPrint: false
+            }
         ],
 
         "ajax": {
@@ -145,22 +166,41 @@ function insert(nik) {
 }
 
 
-
-
-
-
-//Datatable and fill table history
+//Datatable and fill table
 $(document).ready(function () {
     var table = $('#history').DataTable({
         responsive: true,
 
         dom: 'Bfrtip',
         buttons: [
-            { extend: 'copy' },
-            { extend: 'csv' },
-            { extend: 'excel' },
-            { extend: 'pdf', orientation: 'landscape' },
-            { extend: 'print' }
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa fa-copy"></i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend: 'csvHtml5',
+                text: '<i class="fa fa-file-text"></i>',
+                titleAttr: 'CSV'
+            },
+            {
+
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF'
+
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                autoPrint: false
+            }
         ],
 
         "ajax": {
@@ -171,7 +211,10 @@ $(document).ready(function () {
         },
         "columns": [
             {
-                "data": "idTicket"
+                "data": null,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
             },
             {
                 "data": "idTicket"
