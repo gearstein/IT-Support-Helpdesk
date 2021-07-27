@@ -148,7 +148,16 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "detail"
+                "data": "detail",
+                render: function (data, type, row) {
+                    if (data == "Pending") {
+                        return `<span class="badge badge-danger">` + data + `</span>`
+                    } else if (data == "On Going") {
+                        return `<span class="badge badge-info">` + data + `</span>`
+                    } else {
+                        return `<span class="badge badge-success">` + data + `</span>`
+                    }
+                }
             },
             {
                 "data": null,
@@ -358,7 +367,16 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "detail"
+                "data": "detail",
+                render: function (data, type, row) {
+                    if (data == "Pending") {
+                        return `<span class="badge badge-danger">` + data + `</span>`
+                    } else if (data == "On Going") {
+                        return `<span class="badge badge-info">` + data + `</span>`
+                    } else {
+                        return `<span class="badge badge-success">` + data + `</span>`
+                    }
+                }
             },
         ]
     });
