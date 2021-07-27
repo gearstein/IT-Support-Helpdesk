@@ -46,6 +46,18 @@ namespace Client.Repositories.Data
             return entities;
         }
 
+        public async Task<List<AllTicketRequestVM>> FindComplete(string nik)
+        {
+            List<AllTicketRequestVM> entities = new List<AllTicketRequestVM>();
+
+            using (var response = await httpClient.GetAsync(request + "FindComplete/" + nik))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                entities = JsonConvert.DeserializeObject<List<AllTicketRequestVM>>(apiResponse);
+            }
+            return entities;
+        }
+
         public async Task<List<AllTicketRequestVM>> GetRequestView()
         {
             List<AllTicketRequestVM> entities = new List<AllTicketRequestVM>();

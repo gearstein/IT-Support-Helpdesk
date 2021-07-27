@@ -332,7 +332,10 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "idTicket"
+                "data": "idTicket",
+                render: function (data, type, row) {
+                    return "TR" + data + "MCC";
+                }
             },
             {
                 "data": "message"

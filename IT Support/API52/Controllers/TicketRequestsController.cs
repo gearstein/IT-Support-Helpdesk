@@ -101,6 +101,22 @@ namespace API52.Controllers
             }
         }
 
+        [HttpGet("FindComplete/{nik}")]
+        public ActionResult FindComplete(string NIK)
+        {
+            var response = ticketrequestRepository.FindComplete(NIK);
+            if (NIK == null)
+            {
+                var get = NotFound(new { status = HttpStatusCode.NotFound, result = response, messasge = "Not Found" });
+                return get;
+            }
+            else
+            {
+                var get = Ok(response);
+                return get;
+            }
+        }
+
         [HttpGet("ViewChart")]
         public ActionResult ViewChart()
         {

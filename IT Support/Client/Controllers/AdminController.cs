@@ -137,6 +137,14 @@ namespace Client.Controllers
             return Json(result);
         }
 
+        public async Task<JsonResult> FindComplete()
+        {
+            //var jwtnik = repository.JwtNIK();
+            var nik = HttpContext.Session.GetString("NIK");
+            var result = await repository.FindComplete(nik);
+            return Json(result);
+        }
+
         public async Task<string> showToken()
         {
             var token = await repository.getJWT();

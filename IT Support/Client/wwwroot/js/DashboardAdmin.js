@@ -204,8 +204,8 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-            /* url: "/admin/getrequestview/",*/
-            url: "https://localhost:44311/API/TicketRequests/ViewComplete",
+             url: "/admin/findcomplete/",
+            /*url: "https://localhost:44311/API/TicketRequests/ViewComplete",*/
             dataType: "json",
             dataSrc: ""
         },
@@ -217,7 +217,10 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "idTicket"
+                "data": "idTicket",
+                render: function (data, type, row) {
+                    return "TR" + data + "MCC";
+                }
             },
             {
                 "data": "message"
