@@ -389,10 +389,14 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "message"
+                "data": "title"
             },
             {
-                "data": "title"
+                "data": "message",
+                className: "text-justify",
+                "render": function (data, type, row) {
+                    return data;
+                }
             },
             {
                 "data": "startDate",

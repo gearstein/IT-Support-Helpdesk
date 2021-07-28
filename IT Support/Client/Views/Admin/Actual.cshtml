@@ -6,7 +6,7 @@
 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tabel Tiket</h1>
+    <h1 class="h3 mb-0 text-gray-800">Ticket Table</h1>
 
 </div>
 
@@ -30,53 +30,27 @@
 
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Create title problem">
+                        <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Create title problem" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         <div class="invalid-feedback">
-                            Please create title.
+                            Please create title !
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" name="message" id="message" rows="3"></textarea>
-                        <label class="form-label" for="message"></label>
-                    </div>
-
-                    @*<div class="form-group">
-                        <label for="startdate">complaint time</label>
-                        <input type="datetime-local" class="form-control" id="startdate" placeholder="">
-                        <div class="valid-feedback">
-                            looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            please choose a date.
-                        </div>
-                    </div>*@
-
-                    @*<div class="form-group">
-                            <label for="updatetime">Update Time</label>
-                            <input type="datetime-local" class="form-control" id="updatedate" placeholder="">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please choose a time.
-                            </div>
-                        </div>*@
-
-                    @*<div class="form-group">
-                        <label for="nik">NIK</label>
-                        <input type="text" class="form-control" id="nik" placeholder="">
+                        <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         <div class="invalid-feedback">
-                            Please choose a nik.
+                            Please create message !
                         </div>
-                    </div>*@
 
+                        <label class="form-label" for="message"></label>
+                    </div>
                     <div class="form-group">
                     </div>
                     <button class="btn btn-primary mb-3" type="submit">Create</button>
@@ -148,10 +122,11 @@
                 <th scope="col">No</th>
                 <th scope="col">Id Ticket</th>
                 <th scope="col">Title</th>
+                <th scope="col">Message</th>
                 <th scope="col">Complaint Date</th>
                 <th scope="col">Update Complaint Date</th>
                 <th scope="col">Status</th>
-                <th scope="col">PIC</th>
+                @*<th scope="col">PIC</th>*@
                 @*<th scope="col">Aksi</th>*@
             </tr>
         </thead>
