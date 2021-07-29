@@ -121,6 +121,52 @@ window.addEventListener('load', () => {
     }
 });
 
+//$(document).ready(function () {
+//    $('#submitRequest').click(function () {
+//        $.ajax({
+//            url: "https://localhost:44311/API/Accounts/NotifSend/",
+//            type: "GET",
+//            success: function () {
+//                Swal.fire({
+//                    icon: 'success',
+//                    title: 'Email Sent!',
+//                    showConfirmButton: false,
+//                    timer: 1500
+//                })
+//            },
+//            error: function (err) {
+//                Swal.fire({
+//                    icon: 'error',
+//                    title: 'Oops...',
+//                    text: 'Something went wrong, Call Helpdesk!',
+//                    showConfirmButton: false,
+//                    timer: 1800
+//                })
+//            }
+//        });
+//    })
+//});
+
+//Send Email
+function send(ticket) {
+        $.ajax({
+            url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/Junior Helpdesk",
+            type: "GET",
+            success: function () {
+            },
+            error: function (err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong, Call Helpdesk!',
+                    showConfirmButton: false,
+                    timer: 1800
+                })
+            }
+        });
+}
+
+//JWT
 function jwt() {
     $.ajax({
         url: "/admin/findrequest/",
@@ -158,7 +204,11 @@ function insert(nik) {
         contentType: "application/json",
         dataType: "json"
     }).done((result) => {
-
+        $.ajax({
+            url: "https://localhost:44311/API/TicketRequests/FindRequest/" + nik,
+        }).done((result) => {
+            send(result[0].idTicket);
+        })
         /*$(".bd-example-modal-lg").modal('hide')*/
 
         Swal.fire({

@@ -160,6 +160,12 @@ $(document).ready(function () {
                 }
             },
             {
+                "data": "phoneNumber",
+                render: function (data, type, row) {
+                    return "+62" + data.slice(1);
+                }
+            },
+            {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
@@ -169,13 +175,6 @@ $(document).ready(function () {
                            `
                 }
             },
-            {
-                "data": "phoneNumber",
-                render: function (data, type, row) {
-                    return "+62" + data.slice(1);
-                }
-            },
-
             {
                 "data": null,
                 "render": function (data, type, row) {
@@ -188,7 +187,7 @@ $(document).ready(function () {
                 "render": function (data, type, row) {
                     return '<br>' + data;
                 }
-            }
+            },
         ]
     });
 
@@ -199,6 +198,24 @@ $(document).ready(function () {
 
 });
 
+//Send Email
+function send(ticket) {
+    $.ajax({
+        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/Helpdesk",
+        type: "GET",
+        success: function () {
+        },
+        error: function (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong, Call Helpdesk!',
+                showConfirmButton: false,
+                timer: 1800
+            })
+        }
+    });
+}
 
 function updatestatus(put) {
 
@@ -300,7 +317,11 @@ function updatestatus2(put) {
             $.ajax({
                 url: "https://localhost:44311/API/TicketRequests/" + put
             }).done((result) => {
-
+                $.ajax({
+                    url: "https://localhost:44311/API/TicketRequests/FindRequest/" + put,
+                }).done((result) => {
+                    send(put);
+                })
                 var obj = new Object()
 
                 obj.idTicket = result.idTicket

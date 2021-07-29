@@ -152,5 +152,65 @@ namespace API52.Repository.Data
                         claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: sigin);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public int NotifSend(int IDTicket, string roleName)
+        {
+            var data = (from employee in MyContext.Employees
+                        join account in MyContext.Accounts
+                        on employee.NIK equals account.NIK
+                        join accountroles in MyContext.AccountRoles
+                        on account.NIK equals accountroles.NIK
+                        join role in MyContext.Roles
+                        on accountroles.IDRole equals role.IDRole
+                        where role.RoleName == roleName
+                        select new
+                        {
+                            Email = employee.Email,
+                            FirstName = employee.FirstName
+                        }).ToList();
+            int count = 0;
+            foreach(var item in data)
+            {
+                using (MailMessage message = new MailMessage())
+                {
+                    message.From = new MailAddress("Riri330902@gmail.com");
+                    message.To.Add(item.Email);
+                    message.Subject = "[No Reply] Incoming Ticket Request";
+                    message.Body = $"Hey there {item.FirstName}, There is an incoming ticket request from TR{IDTicket}MCC";
+
+                    using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
+                    {
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("Riri330902@gmail.com", "Henshin222");
+                        SmtpServer.EnableSsl = true;
+                        SmtpServer.Send(message);
+                        count++;
+                    }
+                }
+            }
+            return count;
+            //var accmatch = MyContext.Employees.FirstOrDefault(e => e.Email == ticket.Email);
+            //    if (accmatch != null)
+            //    {
+            //        using (MailMessage message = new MailMessage())
+            //        {
+            //            message.From = new MailAddress("Riri330902@gmail.com");
+            //            message.To.Add(ticket.Email);
+            //            message.Subject = "[No Reply] Incoming Ticket Request";
+            //            message.Body = $"Hey there {accmatch.FirstName}, There is an incoming ticket request";
+
+            //            using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
+            //            {
+            //                SmtpServer.Credentials = new System.Net.NetworkCredential("Riri330902@gmail.com", "Henshin222");
+            //                SmtpServer.EnableSsl = true;
+            //                SmtpServer.Send(message);
+            //                return 1;
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return 2;
+            //    }
+        }
     }
 }

@@ -122,7 +122,6 @@ $(document).ready(function () {
                     return "TR" + data + "MCC";
                 }
             },
-
             {
                 "data": "title"
             },
@@ -136,16 +135,13 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
-
                 }
             },
             {
                 "data": "updateDate",
-
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
-
                 }
             },
             {
@@ -161,6 +157,12 @@ $(document).ready(function () {
                 }
             },
             {
+                "data": "phoneNumber",
+                render: function (data, type, row) {
+                    return "+62" + data.slice(1);
+                }
+            },
+            {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
@@ -169,13 +171,6 @@ $(document).ready(function () {
                            `
                 }
             },
-            {
-                "data": "phoneNumber",
-                render: function (data, type, row) {
-                    return "+62" + data.slice(1);
-                }
-            },
-
             {
                 "data": null,
                 "render": function (data, type, row) {
@@ -188,7 +183,7 @@ $(document).ready(function () {
                 "render": function (data, type, row) {
                     return '<br>' + data;
                 }
-            }
+            },
         ]
     });
 
