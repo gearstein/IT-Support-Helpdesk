@@ -160,21 +160,23 @@ $(document).ready(function () {
                 }
             },
             {
+                "data": null,
+                targets: 'no-sort', orderable: false,
+                render: function (data, type, row) {
+                    return `<div class="row">
+                            <button class="btn btn-success mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
+                            <button class="btn btn-warning mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Send" onclick="updatestatus2(${row['idTicket']})"><i class="fa fa-share" aria-hidden="true"></i></button>
+                            </div>
+                            `
+                }
+            },
+            {
                 "data": "phoneNumber",
                 render: function (data, type, row) {
                     return "+62" + data.slice(1);
                 }
             },
-            {
-                "data": null,
-                targets: 'no-sort', orderable: false,
-                render: function (data, type, row) {
-                    return `
-                            <button class="btn btn-success mb-2" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
-                            <button class="btn btn-warning mb-2" onclick="updatestatus2(${row['idTicket']})"><i class="fa fa-share" aria-hidden="true"></i></button>
-                           `
-                }
-            },
+
             {
                 "data": null,
                 "render": function (data, type, row) {
@@ -187,7 +189,7 @@ $(document).ready(function () {
                 "render": function (data, type, row) {
                     return '<br>' + data;
                 }
-            },
+            }
         ]
     });
 
@@ -197,11 +199,10 @@ $(document).ready(function () {
     }, 30000);
 
 });
-
 //Send Email
 function send(ticket) {
     $.ajax({
-        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket +"/Engineer",
+        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket +"/engineer",
         type: "GET",
         success: function () {
         },
@@ -371,7 +372,7 @@ $(document).ready(function () {
             },
             {
                 "data": "message",
-                className: "text-justify",
+                className: "text-justify text-break",
                 "render": function (data, type, row) {
                     return data;
                 }

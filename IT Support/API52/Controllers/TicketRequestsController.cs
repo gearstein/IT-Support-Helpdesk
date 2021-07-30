@@ -180,5 +180,21 @@ namespace API52.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("ViewRequestDetail")]
+        public ActionResult ViewRequestDetail()
+        {
+            try
+            {
+                var get = ticketrequestRepository.ViewRequestDetail();
+                if (get == null)
+                    return NotFound(new { status = HttpStatusCode.NotFound, result = get, messasge = "Not Found" });
+                return Ok(get);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

@@ -157,18 +157,19 @@ $(document).ready(function () {
                 }
             },
             {
-                "data": "phoneNumber",
-                render: function (data, type, row) {
-                    return "+62" + data.slice(1);
-                }
-            },
-            {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
-                    return `
-                            <button class="btn btn-success mb-2" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button> 
+                    return `<div class = "row">
+                              <button class="btn btn-success mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
+                            </div>
                            `
+                }
+            },
+            {
+                "data": "phoneNumber",
+                render: function (data, type, row) {
+                    return "+62" + data.slice(1);
                 }
             },
             {
@@ -179,7 +180,7 @@ $(document).ready(function () {
             },
             {
                 "data": "message",
-                className: "text-justify",
+                className: "text-justify text-break",
                 "render": function (data, type, row) {
                     return '<br>' + data;
                 }
@@ -304,7 +305,7 @@ $(document).ready(function () {
             },
             {
                 "data": "message",
-                className: "text-justify",
+                className: "text-justify text-break",
                 "render": function (data, type, row) {
                     return data;
                 }

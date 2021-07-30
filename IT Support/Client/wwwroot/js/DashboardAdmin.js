@@ -1,9 +1,9 @@
 ﻿
-//Datatable and fill table actual
+//Datatable and fill table
 $(document).ready(function () {
-    var no = 1;
     var table = $('#registerData').DataTable({
         responsive: true,
+
 
         dom: 'Bfrtip',
         buttons: [
@@ -23,9 +23,11 @@ $(document).ready(function () {
                 titleAttr: 'CSV'
             },
             {
+
                 extend: 'pdfHtml5',
                 text: '<i class="fa fa-file-pdf-o"></i>',
                 titleAttr: 'PDF'
+
             },
             {
                 extend: 'print',
@@ -36,15 +38,16 @@ $(document).ready(function () {
         ],
 
         "ajax": {
-             url: "/admin/findrequest/",
-            /*url: "https://localhost:44311/API/TicketRequests/ViewRequest",*/
+            /* url: "/admin/getrequestview/",*/
+            url: "https://localhost:44311/API/TicketRequests/ViewRequestJunior",
             dataType: "json",
             dataSrc: ""
+
         },
         "columns": [
             {
                 "data": null,
-                    render: function(data, type, row, meta) {
+                render: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
@@ -54,29 +57,35 @@ $(document).ready(function () {
                     return "TR" + data + "MCC";
                 }
             },
+
             {
                 "data": "title"
             },
+
             {
                 "data": "message",
-                className: "text-justify",
+                className: "text-justify text-break",
                 "render": function (data, type, row) {
                     return data;
                 }
             },
+
             {
                 "data": "startDate",
 
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
+
                 }
             },
             {
                 "data": "updateDate",
+
                 render: function (data, type, row) {
                     date = new Date(data);
                     return date.toLocaleString();
+
                 }
             },
             {
@@ -91,9 +100,10 @@ $(document).ready(function () {
                     }
                 }
             }
-            //{
-            //    "data": "priorityName"
-            //}
+
+           
+       
+
         ]
     });
 
@@ -103,6 +113,9 @@ $(document).ready(function () {
     }, 30000);
 
 });
+
+
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 window.addEventListener('load', () => {
@@ -121,36 +134,11 @@ window.addEventListener('load', () => {
     }
 });
 
-//$(document).ready(function () {
-//    $('#submitRequest').click(function () {
-//        $.ajax({
-//            url: "https://localhost:44311/API/Accounts/NotifSend/",
-//            type: "GET",
-//            success: function () {
-//                Swal.fire({
-//                    icon: 'success',
-//                    title: 'Email Sent!',
-//                    showConfirmButton: false,
-//                    timer: 1500
-//                })
-//            },
-//            error: function (err) {
-//                Swal.fire({
-//                    icon: 'error',
-//                    title: 'Oops...',
-//                    text: 'Something went wrong, Call Helpdesk!',
-//                    showConfirmButton: false,
-//                    timer: 1800
-//                })
-//            }
-//        });
-//    })
-//});
 
 //Send Email
 function send(ticket) {
         $.ajax({
-            url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/Junior Helpdesk",
+            url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/junior",
             type: "GET",
             success: function () {
             },
@@ -293,7 +281,7 @@ $(document).ready(function () {
             },
             {
                 "data": "message",
-                className: "text-justify",
+                className: "text-justify text-break",
                 "render": function (data, type, row) {
                     return data;
                 }
@@ -325,7 +313,7 @@ $(document).ready(function () {
                         return `<span class="badge badge-success">` + data + `</span>`
                     }
                 }
-            },
+            }
         ]
     });
 
@@ -335,140 +323,6 @@ $(document).ready(function () {
     }, 30000);
 
 });
-
-function updatestatus(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 2
-                obj.idpriority = 1
-
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                    type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                    .done((hasil) => {
-                        Swal.fire('Saved!', '', 'success')
-                    }).fail((error) => {
-
-                        Swal.fire('Changes are not saved', '', 'info')
-                    });
-            })
-        }
-    })
-
-}
-
-function updatestatus1(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 3
-                obj.idpriority = 1
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                    type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                    .done((hasil) => {
-                        Swal.fire('Saved!', '', 'success')
-                    }).fail((error) => {
-
-                        Swal.fire('Changes are not saved', '', 'info')
-                    });
-            })
-        }
-    })
-
-}
-
-function updatestatus2(put) {
-
-    Swal.fire({
-        title: 'Apakah ingin melanjutkan proses selanjutnya ?',
-        showCancelButton: true,
-        confirmButtonText: `Iya`
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "https://localhost:44311/API/TicketRequests/" + put
-            }).done((result) => {
-
-                var obj = new Object()
-
-                obj.idTicket = result.idTicket
-                obj.title = result.title
-                obj.message = result.message
-                obj.startDate = result.startDate
-                obj.nik = result.nik
-                obj.updateDate = new Date()
-                obj.idStat = 2
-                obj.idpriority = 2
-
-                $.ajax({
-                    url: "https://localhost:44311/API/TicketRequests/",
-                    type: "PUT",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json",
-                    dataType: "json"
-
-                })
-                    .done((hasil) => {
-                        Swal.fire('Saved!', '', 'success')
-                    }).fail((error) => {
-
-                        Swal.fire('Changes are not saved', '', 'info')
-                    });
-            })
-        }
-    })
-
-}
-
 
 
 
