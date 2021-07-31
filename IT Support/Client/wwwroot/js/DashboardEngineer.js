@@ -160,7 +160,7 @@ $(document).ready(function () {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
-                    return `<div class = "row">
+                    return `<div class = "px-5 mx-3">
                               <button class="btn btn-success mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
                             </div>
                            `

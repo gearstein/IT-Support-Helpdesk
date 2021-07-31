@@ -163,7 +163,7 @@ $(document).ready(function () {
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
-                    return `<div class="row">
+                    return `<div class="d-flex px-3">
                             <button class="btn btn-success mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
                             <button class="btn btn-warning mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Send" onclick="updatestatus2(${row['idTicket']})"><i class="fa fa-share" aria-hidden="true"></i></button>
                             </div>
@@ -202,7 +202,7 @@ $(document).ready(function () {
 //Send Email
 function send(ticket) {
     $.ajax({
-        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket +"/engineer",
+        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket +"/Engineer",
         type: "GET",
         success: function () {
         },

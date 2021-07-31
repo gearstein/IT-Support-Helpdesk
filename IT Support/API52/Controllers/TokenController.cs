@@ -57,7 +57,7 @@ namespace API52.Controllers
                 }
                 else
                 {
-                    return BadRequest("Invalid credentials");
+                    return BadRequest("Salah Input Email");
                 }
             }
             else
@@ -84,7 +84,7 @@ namespace API52.Controllers
                 }
                 else
                 {
-                    return BadRequest("Invalid credentials");
+                    return BadRequest("Salah Input Password");
                 }
             }
         }

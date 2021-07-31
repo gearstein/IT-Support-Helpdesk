@@ -163,10 +163,11 @@ $(document).ready(function () {
             },
 
             {
+                /*className: "d-flex",*/
                 "data": null,
                 targets: 'no-sort', orderable: false,
                 render: function (data, type, row) {
-                    return `<div class="row">
+                    return `<div class = "d-flex">
                             <button class="btn btn-primary mr-1 mt-1 data-toggle="tooltip" data-placement="left"title="On Going"" onclick="updatestatus(${row['idTicket']})"><i  class="fa fa-spinner" aria-hidden="true"></i></button>
                             <button class="btn btn-success mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
                             <button class="btn btn-warning mr-1 mt-1 data-toggle="tooltip" data-placement="top" title="Send" onclick="updatestatus2(${row['idTicket']})"><i class="fa fa-share" aria-hidden="true"></i></button>
@@ -211,7 +212,7 @@ $(document).ready(function () {
 //Send Email
 function send(ticket) {
     $.ajax({
-        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/helpdesk",
+        url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/Helpdesk",
         type: "GET",
         success: function () {
         },

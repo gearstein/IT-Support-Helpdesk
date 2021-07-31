@@ -40,19 +40,19 @@ namespace Client.Controllers
             HttpContext.Session.SetString("NIK", repository.JwtNIK(jwtoken.Token));
 
             var role = HttpContext.Session.GetString("role");
-            if (role == "employee")
+            if (role == "Employee")
             {
                 return RedirectToAction("dashboard", "admin");
             }
-            else if (role == "junior")
+            else if (role == "Junior Helpdesk")
             {
                 return RedirectToAction("junior", "admin");
             }
-            else if (role == "helpdesk")
+            else if (role == "Helpdesk")
             {
                 return RedirectToAction("helpdesk", "admin");
             }
-            else if (role == "engineer")
+            else if (role == "Engineer")
             {
                 return RedirectToAction("engineer", "admin");
             }

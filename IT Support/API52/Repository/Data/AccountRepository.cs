@@ -178,6 +178,7 @@ namespace API52.Repository.Data
                     message.Subject = "[No Reply] Incoming Ticket Request";
                     message.Body = $"Hey there {item.FirstName}, There is an incoming ticket request from TR{IDTicket}MCC";
 
+
                     using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
                     {
                         SmtpServer.Credentials = new System.Net.NetworkCredential("Riri330902@gmail.com", "Henshin222");

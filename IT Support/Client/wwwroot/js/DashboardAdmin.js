@@ -138,9 +138,14 @@ window.addEventListener('load', () => {
 //Send Email
 function send(ticket) {
         $.ajax({
-            url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/junior",
+            url: "https://localhost:44311/API/Accounts/NotifSend/" + ticket + "/Junior Helpdesk",
             type: "GET",
             success: function () {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Registration Success!",
+                    icon: "success"
+                });
             },
             error: function (err) {
                 Swal.fire({
