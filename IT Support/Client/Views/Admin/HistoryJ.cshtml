@@ -9,7 +9,7 @@
 </div>
 
 <!--Modal Detail-->
-<div class="modal fade" id="getrequest" tabindex="-1" role="dialog" aria-hidden="true">
+<!--<div class="modal fade" id="getrequest" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -45,10 +45,9 @@
             </div>
         </div>
     </div>
-</div>
-
+</div>-->
 <!--Datatable For Table-->
-<div class="table-responsive">
+<!--<div class="table-responsive">
     <table class="table table-striped table-hover" id="history">
         <thead>
             <tr>
@@ -60,12 +59,125 @@
                 <th scope="col">Update Complaint Time</th>
                 <th scope="col">Status</th>
             </tr>
+        </thead>-->
+<!--Show isi data table link to ajax js-->
+<!--<tbody id="showData">
+        </tbody>
+    </table>
+</div>-->
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" id="getdetailhistory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail History Ticket</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <section class="row">
+                    <div class="col-lg">
+                        <div class="card">
+                            <div class="card-header text-center">
+
+                                <h4> <span class="text-primary"><i class="bi bi-person"></i></span> Complaint Data </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Id Ticket</div>
+                                    <div class="col fw-bold profil" id="idTicket"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Title</div>
+                                    <div class="col fw-bold profil" id="title2"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Complain Time</div>
+                                    <div class="col fw-bold profil" id="startDate"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Complain Update</div>
+                                    <div class="col fw-bold profil" id="updateDate"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Totals Work</div>
+                                    <div class="col fw-bold profil" id="selisih"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Status</div>
+                                    <div class="col fw-bold profil" id="detail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4> <span class="text-primary"><i class="bi bi-briefcase"></i></span>Personal Data</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Name</div>
+                                    <div class="col fw-bold profil" id="firstname"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">No Telp</div>
+                                    <div class="col fw-bold profil" id="phoneNumber"></div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-lg-6">Email</div>
+                                    <div class="col fw-bold profil" id="email"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="container mt-3">
+                    <p class="text-justify">Message<br><span class="profil text-break" id="message2"></span></p>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                @*<button class="btn btn-primary mr-1 data-toggle= " tooltip" data-placement="left" title="On Going" onclick="updatestatus(${row['idTicket']})"><i class="fa fa-spinner" aria-hidden="true"></i></button>
+                    <button class="btn btn-success mr-1 data-toggle= " tooltip" data-placement="top" title="Complete" onclick="updatestatus1(${row['idTicket']})"><i class="fa fa-check-square" aria-hidden="true"></i></button>
+                    <button class="btn btn-warning mr-1 data-toggle= " tooltip" data-placement="top" title="Send lv2" onclick="updatestatus2(${row['idTicket']})"><i class="fa fa-share" aria-hidden="true"></i></button>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Datatable For Table-->
+<div class="table-responsive">
+    <table class="table table-striped table-hover" id="history">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Id Ticket</th>
+                <th scope="col">Title</th>
+                <th scope="col">Email</th>
+                <th scope="col">Complaint Time</th>
+                <th scope="col">Update Complaint Time</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
         </thead>
         <!--Show isi data table link to ajax js-->
         <tbody id="showData">
         </tbody>
     </table>
 </div>
+
 
 
 

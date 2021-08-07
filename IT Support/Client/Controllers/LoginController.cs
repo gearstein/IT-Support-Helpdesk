@@ -40,26 +40,31 @@ namespace Client.Controllers
             HttpContext.Session.SetString("NIK", repository.JwtNIK(jwtoken.Token));
 
             var role = HttpContext.Session.GetString("role");
-            if (role == "Employee")
-            {
-                return RedirectToAction("dashboard", "admin");
-            }
-            else if (role == "Junior Helpdesk")
-            {
-                return RedirectToAction("junior", "admin");
-            }
-            else if (role == "Helpdesk")
-            {
-                return RedirectToAction("helpdesk", "admin");
-            }
-            else if (role == "Engineer")
-            {
-                return RedirectToAction("engineer", "admin");
-            }
-            else
-            {
-                return RedirectToAction("index", "login");
-            }
+
+            return Json(role);
+
+
+
+            //if (role == "employee")
+            //{
+            //    return RedirectToAction("dashboard", "admin");
+            //}
+            //else if (role == "junior")
+            //{
+            //    return RedirectToAction("junior", "admin");
+            //}
+            //else if (role == "helpdesk")
+            //{
+            //    return RedirectToAction("helpdesk", "admin");
+            //}
+            //else if (role == "engineer")
+            //{
+            //    return RedirectToAction("engineer", "admin");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("index", "login");
+            //}
         }
 
         public IActionResult Logout()

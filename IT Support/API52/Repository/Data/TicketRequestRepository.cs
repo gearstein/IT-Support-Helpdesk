@@ -260,5 +260,29 @@ namespace API52.Repository.Data
                            }); ;
             return request;
         }
+
+        // Chart
+        public IQueryable FindChart(string nik)
+        {
+            var request = (from tr in MyContext.TicketRequests
+                           join emp in MyContext.Employees on tr.NIK equals emp.NIK
+                           join st in MyContext.Statuses on tr.IDStat equals st.IDStat
+                           join pr in MyContext.Priorities on tr.IDPriority equals pr.IDPriority
+                           where tr.NIK == nik
+                           orderby tr.IDTicket descending
+                           select new
+                           {
+                               tr.IDTicket,
+                               tr.Title,
+                               tr.Message,
+                               st.Detail,
+                               tr.StartDate,
+                               tr.UpdateDate,
+                               emp.NIK,
+                               emp.Email,
+                               pr.PriorityName,
+                           });
+            return request;
+        }
     }
 }

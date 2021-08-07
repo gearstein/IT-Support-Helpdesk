@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -111,7 +112,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Logout Screens:</h6>
+                        <h6 class="collapse-header">Other Screens:</h6>
+                        <a class="collapse-item" href="#" data-toggle="modal" data-target="#changepasswordModal">Change Password</a>
                         <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
                     </div>
                 </div>
@@ -138,7 +140,41 @@
                 </div>
             </div>
 
-
+            <!-- Change Password Modal-->
+            <div class="modal fade" id="changepasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Changing Password</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <input type="hidden" name="NIK" id="NIK" value="@Context.Session.GetString("NIK")" />
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password Lama</label>
+                                    <input type="password" class="form-control" id="Password" name="Password" required>
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password Baru</label>
+                                    <input type="password" class="form-control" id="PasswordBaru" name="PasswordBaru" required>
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Konfirmasi Password</label>
+                                    <input type="password" class="form-control" id="PasswordDouble" name="PasswordBaru" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="#" onclick="changepassword()">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -286,7 +322,7 @@
 
     <!-- Page level custom scripts -->
     @*<script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>*@
+        <script src="~/js/demo/chart-pie-demo.js"></script>*@
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>

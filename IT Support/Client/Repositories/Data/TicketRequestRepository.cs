@@ -82,6 +82,19 @@ namespace Client.Repositories.Data
             return token;
         }
 
+        // Chart
+        public async Task<List<AllTicketRequestVM>> FindChart(string nik)
+        {
+            List<AllTicketRequestVM> entities = new List<AllTicketRequestVM>();
+
+            using (var response = await httpClient.GetAsync(request + "FindChart/" + nik))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                entities = JsonConvert.DeserializeObject<List<AllTicketRequestVM>>(apiResponse);
+            }
+            return entities;
+        }
+
         //public HttpStatusCode Put(Coba entity)
         //{
         //    StringContent content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, "application/json");

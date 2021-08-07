@@ -25,6 +25,40 @@ namespace API52.Repository.Data
             this.configuration = config;
             this.context = myContext;
         }
+        //public int Login(LoginVM loginVM)
+        //{
+        //    var employee = new Employee();
+        //    var account = new Account();
+        //    var alternatif = context.Accounts.Find(loginVM.NIK);
+        //    if (alternatif != null)
+        //    {
+        //        var test = context.Accounts.FirstOrDefault(a => a.NIK == loginVM.NIK && a.Password == loginVM.Password);
+        //        if (test != null)
+        //        {
+        //            return 1;
+        //        }
+        //        else
+        //        {
+        //            return 0;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        var cekEmail = context.Employees.FirstOrDefault(a => a.Email == loginVM.Email);
+        //        var cekNIK = context.Employees.Find(cekEmail.NIK);
+        //        var hasedpassword = context.Accounts.Find(cekNIK.NIK);
+        //        var validate = BCrypt.Net.BCrypt.Verify(loginVM.Password, hasedpassword.Password);
+        //        var cekPass = context.Accounts.FirstOrDefault(a => a.NIK == cekNIK.NIK && a.Password == loginVM.Password);
+        //        if (cekEmail != null && validate)
+        //        {
+        //            return 1;
+        //        }
+        //        else
+        //        {
+        //            return 0;
+        //        }
+        //    }
+        //}
         public int Login(LoginVM loginVM)
         {
             var employee = new Employee();
@@ -63,9 +97,9 @@ namespace API52.Repository.Data
         {
             var employee = new Employee();
             var account = new Account();
-            var cekEmail = context.Employees.FirstOrDefault(a => a.Email == changeVM.NIK);
-            var cekNIK = context.Employees.Find(cekEmail.NIK);
-            var hasedpassword = context.Accounts.Find(cekNIK.NIK);
+            var cekEmail = context.Employees.FirstOrDefault(a => a.NIK == changeVM.NIK);
+            //var cekNIK = context.Employees.Find(cekEmail.NIK);
+            var hasedpassword = context.Accounts.Find(cekEmail.NIK);
             if (cekEmail != null)
             {
                 var cekpass = BCrypt.Net.BCrypt.Verify(changeVM.PasswordLama, hasedpassword.Password);
@@ -91,29 +125,36 @@ namespace API52.Repository.Data
                 var employee = new Employee();
                 var account = new Account();
                 Guid obj = Guid.NewGuid();
-                var cekEmail = context.Employees.FirstOrDefault(a => a.Email == forgotVM.NIK);
-                var cekNIK = context.Employees.Find(cekEmail.NIK);
-                var email = context.Employees.FirstOrDefault(a => a.Email == forgotVM.Email);
-                account.NIK = cekNIK.NIK;
-                forgotVM.PasswordLama = account.Password;
-                account.Password = BCrypt.Net.BCrypt.HashPassword(obj.ToString());
-                using (MailMessage mail = new MailMessage())
+                var cekEmail = context.Employees.FirstOrDefault(a => a.Email == forgotVM.Email);
+                if(cekEmail != null)
                 {
-                    var placeholder = obj.ToString();
-                    mail.From = new MailAddress("geralepua98@gmail.com");
-                    mail.To.Add(forgotVM.Email);
-                    mail.Subject = $"Reset Password {forgotVM.PasswordLama}";
-                    mail.Body = $"Halo {email.FirstName} , ini adalah password baru anda note bahwa ini password sementara {obj.ToString()}";
-
-                    using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
+                    //var cekNIK = context.Employees.Find(cekEmail.NIK);
+                    //var email = context.Employees.FirstOrDefault(a => a.Email == forgotVM.Email);
+                    account.NIK = cekEmail.NIK;
+                    forgotVM.PasswordLama = account.Password;
+                    account.Password = BCrypt.Net.BCrypt.HashPassword(obj.ToString());
+                    using (MailMessage mail = new MailMessage())
                     {
-                        SmtpServer.Credentials = new System.Net.NetworkCredential("geralepua98@gmail.com", "Gerald9398");
-                        SmtpServer.EnableSsl = true;
-                        SmtpServer.Send(mail);
-                        MyContext.Update(account);
-                        MyContext.SaveChanges();
-                        return 1;
+                        var placeholder = obj.ToString();
+                        mail.From = new MailAddress("ithelpdesk.official@gmail.com");
+                        mail.To.Add(forgotVM.Email);
+                        mail.Subject = $"Reset Password {forgotVM.PasswordLama}";
+                        mail.Body = $"Halo {cekEmail.FirstName} , ini adalah password baru anda note bahwa ini password sementara {obj.ToString()}";
+
+                        using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            SmtpServer.Credentials = new System.Net.NetworkCredential("ithelpdesk.official@gmail.com", "BootcampMCC52");
+                            SmtpServer.EnableSsl = true;
+                            SmtpServer.Send(mail);
+                            MyContext.Update(account);
+                            MyContext.SaveChanges();
+                            return 1;
+                        }
                     }
+                }
+                else
+                {
+                    return 2;
                 }
             }
             catch (Exception)
@@ -173,15 +214,15 @@ namespace API52.Repository.Data
             {
                 using (MailMessage message = new MailMessage())
                 {
-                    message.From = new MailAddress("Riri330902@gmail.com");
+                    message.From = new MailAddress("ithelpdesk.official@gmail.com");
                     message.To.Add(item.Email);
-                    message.Subject = "[No Reply] Incoming Ticket Request";
-                    message.Body = $"Hey there {item.FirstName}, There is an incoming ticket request from TR{IDTicket}MCC";
+                    message.Subject = $"[No Reply] Incoming Ticket Request TR{IDTicket}MCC {DateTime.Now}";
+                    message.Body = $"Hey there {item.FirstName}, There is an incoming ticket request";
 
 
                     using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587))
                     {
-                        SmtpServer.Credentials = new System.Net.NetworkCredential("Riri330902@gmail.com", "Henshin222");
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("ithelpdesk.official@gmail.com", "BootcampMCC52");
                         SmtpServer.EnableSsl = true;
                         SmtpServer.Send(message);
                         count++;

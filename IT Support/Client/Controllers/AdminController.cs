@@ -150,6 +150,18 @@ namespace Client.Controllers
             var token = await repository.getJWT();
             return token;
         }
+        public IActionResult RegisterH()
+        {
+            return View();
+        }
+        // Chart
+        public async Task<JsonResult> FindChart()
+        {
+            //var jwtnik = repository.JwtNIK();
+            var nik = HttpContext.Session.GetString("NIK");
+            var result = await repository.FindChart(nik);
+            return Json(result);
+        }
     }
 }
     

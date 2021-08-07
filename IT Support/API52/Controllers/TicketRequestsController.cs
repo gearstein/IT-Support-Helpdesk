@@ -196,5 +196,23 @@ namespace API52.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        // Chart
+
+        [HttpGet("FindChart/{nik}")]
+        public ActionResult FindChart(string NIK)
+        {
+            var response = ticketrequestRepository.FindChart(NIK);
+            if (NIK == null)
+            {
+                var get = NotFound(new { status = HttpStatusCode.NotFound, result = response, messasge = "Not Found" });
+                return get;
+            }
+            else
+            {
+                var get = Ok(response);
+                return get;
+            }
+        }
     }
 }

@@ -7770,19 +7770,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
+    "C:\\Users\\badan penghubung\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
+      "projectUniqueName": "C:\\Users\\badan penghubung\\OneDrive\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
       "projectName": "API52",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\obj\\",
+      "projectPath": "C:\\Users\\badan penghubung\\OneDrive\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\API52.csproj",
+      "packagesPath": "C:\\Users\\badan penghubung\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\badan penghubung\\OneDrive\\Documents\\GitHub\\IT-Support-Helpdesk\\IT Support\\API52\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\badan penghubung\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
